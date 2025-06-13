@@ -279,10 +279,16 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
 }
+
+.home-container h1 span {
+  color: #bd168b;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
   h1 {
     font-size: 2.5em;
     color:rgb(0, 0, 0);
-    font-size: 70px;
+    font-size: 50px;
     margin-bottom: 20px;
   }
      
@@ -468,5 +474,118 @@
   
   .home-section p {
     font-size: 1.2rem;
+  }
+}
+
+
+/* content section */
+.home-section-hero {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 40px 20px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hero-text {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.hero-text h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  font-family: 'Arial', sans-serif;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  text-align: justify;
+}
+
+.hero-image {
+  flex: 1;
+  max-width: 500px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .home-section-hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 30px;
+    margin: 40px auto;
+    padding: 30px 20px;
+  }
+  
+  .hero-text {
+    padding-right: 0;
+  }
+  
+  .hero-text h2 {
+    font-size: 2rem;
+  }
+  
+  .hero-text p {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  
+  .hero-image {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-section-hero {
+    margin: 20px auto;
+    padding: 20px 15px;
+  }
+  
+  .hero-text h2 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-section-hero {
+    gap: 60px;
+    padding: 60px 40px;
+  }
+  
+  .hero-text h2 {
+    font-size: 3rem;
+  }
+  
+  .hero-text p {
+    font-size: 1.3rem;
   }
 }
