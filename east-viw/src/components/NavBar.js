@@ -87,7 +87,7 @@ function Navbar() {
                   <Link to="/" className={isActive('/')}>Home</Link>
                 </li>
                 <li>
-                  <Link to="/about" className={isActive('/about')}>About</Link>
+                  <Link to="/about" className={isActive('/about')}>About ETI</Link>
                 </li>
                 <li>
                   <Link to="/academics" className={isActive('/academics')}>Academics</Link>
@@ -131,7 +131,7 @@ function Navbar() {
                   <Link to="/" className={isActive('/')}>Home</Link>
                 </li>
                 <li>
-                  <Link to="/about" className={isActive('/about')}>About</Link>
+                  <Link to="/about" className={isActive('/about')}>About ETI</Link>
                 </li>
                 <li>
                   <Link to="/academics" className={isActive('/academics')}>Academics</Link>
