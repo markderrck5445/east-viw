@@ -78,7 +78,7 @@ function Navbar() {
             <nav className="navbar-content">
               {/* Brand/Logo */}
               <div className="navbar-brand">
-                <Link to="/" className="brand-link">EastView Trainig Institute</Link>
+                <div className="brand-link">EastView Trainig Institute</div>
               </div>
 
               {/* Main navigation links */}
@@ -93,7 +93,7 @@ function Navbar() {
                   <Link to="/academics" className={isActive('/academics')}>Academics</Link>
                 </li>
                 <li>
-                  <Link to="/admissions" className={isActive('/admissions')}>Admissions</Link>
+                  <Link to="/admissions" className={isActive('/career')}>Career</Link>
                 </li>
                 <li>
                   <Link to="/student-portal" className={isActive('/student-portal')}>Student Portal</Link>
@@ -112,7 +112,7 @@ function Navbar() {
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  +1 (555) 123-4567
+                  +254 705 446 230
                 </span>
               </div>
             </nav>
@@ -137,7 +137,7 @@ function Navbar() {
                   <Link to="/academics" className={isActive('/academics')}>Academics</Link>
                 </li>
                 <li>
-                  <Link to="/admissions" className={isActive('/admissions')}>Admissions</Link>
+                  <Link to="/admissions" className={isActive('/career')}>Career</Link>
                 </li>
                 <li>
                   <Link to="/student-portal" className={isActive('/student-portal')}>Student Portal</Link>
@@ -152,13 +152,13 @@ function Navbar() {
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 7.89c.39.39 1.02.39 1.41 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  eastview@gmail.com
+                  eastviewcollege@gmail.com
                 </span>
                 <span className="contact-item">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  +1 (555) 123-4567
+                  +254 705 446 230
                 </span>
               </div>
             </div>
