@@ -69,7 +69,7 @@ function Home() {
           <div className="courses-section">
             <h1>Short course</h1>
            </div>
-        <div className="courses-list">
+         <div className="courses-list">
           <div className="course-item">
              <img src={pic1} alt="Hero" />
              <div className="course-details">
@@ -97,8 +97,30 @@ function Home() {
 
         </div>
 
+      {/* entry section */}
 
+      <div className="entry-section">
+        <div className="entry-text">
+          <h2>Entry Qualifications</h2>
+          <p>Certificate Artisan : D- or KCPE</p>
+          <p>Certificate : D or Artisan</p>
+          <p>Certificate :C- or Certificate</p>
+          <p>Higher Diploma/Advance :Dip or Degree</p>
+        </div>
+      </div>
 
+{/* registration section */}
+      <div className="registration-section">
+        <div className="registration-text">
+        <h2>Registration Requirements</h2>
+            <p>Copy of your National ID</p>
+            <p>Coloured passports photos</p>
+            <p>Copy of Educational Certificate</p>
+            <p>Copy of Birth Certificate</p>
+         </div>
+      </div>
+      
+ 
 
     </>
   )
