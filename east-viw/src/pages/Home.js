@@ -66,6 +66,37 @@ function Home() {
 
         </div>
 
+          <div className="courses-section">
+            <h1>Short course</h1>
+           </div>
+        <div className="courses-list">
+          <div className="course-item">
+             <img src={pic1} alt="Hero" />
+             <div className="course-details">
+              <h3>Certificate in Culinary Arts</h3>
+              <p>Duration: 6 months</p>
+              <p>Learn the fundamentals of culinary arts, including cooking techniques, food safety, and kitchen management.</p>
+              </div>
+          </div>
+          <div className="course-item">
+             <img src={pic1} alt="Hero" />
+             <div className="course-details">
+              <h3>Certificate in Culinary Arts</h3>
+              <p>Duration: 6 months</p>
+              <p>Learn the fundamentals of culinary arts, including cooking techniques, food safety, and kitchen management.</p>
+              </div>
+          </div>
+          <div className="course-item">
+             <img src={pic1} alt="Hero" />
+             <div className="course-details">
+              <h3>Certificate in Culinary Arts</h3>
+              <p>Duration: 6 months</p>
+              <p>Learn the fundamentals of culinary arts, including cooking techniques, food safety, and kitchen management.</p>
+              </div>
+          </div>
+
+        </div>
+
 
 
 
