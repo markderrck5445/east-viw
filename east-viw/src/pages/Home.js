@@ -29,10 +29,46 @@ function Home() {
           <div className="hero-text">
             <h2>Become a great leader in just a few weeks</h2>
             <p>
-              Join our culinary program and learn from experienced chefs. Our hands-on approach ensures you gain practical skills and knowledge to excel in the culinary arts.
+              Join our culinary program and learn from experienced Lectures. Our hands-on approach ensures you gain practical skills and knowledge to excel in the culinary arts.
           </p>
           </div>
         </div>
+
+ {/* courses section */}
+          <div className="courses-section">
+            <h1>Certificate/Diploma courses</h1>
+           </div>
+        <div className="courses-list">
+          <div className="course-item">
+             <img src={pic1} alt="Hero" />
+             <div className="course-details">
+              <h3>Certificate in Culinary Arts</h3>
+              <p>Duration: 6 months</p>
+              <p>Learn the fundamentals of culinary arts, including cooking techniques, food safety, and kitchen management.</p>
+              </div>
+          </div>
+          <div className="course-item">
+             <img src={pic1} alt="Hero" />
+             <div className="course-details">
+              <h3>Certificate in Culinary Arts</h3>
+              <p>Duration: 6 months</p>
+              <p>Learn the fundamentals of culinary arts, including cooking techniques, food safety, and kitchen management.</p>
+              </div>
+          </div>
+          <div className="course-item">
+             <img src={pic1} alt="Hero" />
+             <div className="course-details">
+              <h3>Certificate in Culinary Arts</h3>
+              <p>Duration: 6 months</p>
+              <p>Learn the fundamentals of culinary arts, including cooking techniques, food safety, and kitchen management.</p>
+              </div>
+          </div>
+
+        </div>
+
+
+
+
     </>
   )
 }
