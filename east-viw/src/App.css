@@ -16,7 +16,7 @@
 
 /* Single line navbar */
 .single-navbar {
-  background-color: #bd168b;
+  background-color: #e7066f;
   color: white;
 }
 
@@ -433,8 +433,10 @@
 
 .home-section p {
   font-size: 1.1rem;
+  max-width: 500px;
+  font-size: 60px;
   color: #555;
-  line-height: 1.7;
+  line-height: 1.5;
   margin: 0;
   font-family: 'Arial', sans-serif;
   text-align: justify;
