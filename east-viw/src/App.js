@@ -9,6 +9,7 @@ import Academics from './pages/Academics';
 import Career from './pages/Career';
 
 
+
 function App() {
   return (
     <>
