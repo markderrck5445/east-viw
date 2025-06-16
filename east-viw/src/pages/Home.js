@@ -1,5 +1,9 @@
 import React from 'react'
 import pic1 from './img/pic1.jpg';
+import pic2 from './img/pic2.jpg';
+import pic4 from './img/pic4.jpg';
+import pic5 from './img/pic5.jpg';
+import pic6 from './img/pic6.jpg';
 
 function Home() {
   return (
@@ -24,7 +28,7 @@ function Home() {
         
         <div className="home-section-hero">
           <div className="hero-image">
-            <img src={pic1} alt="Hero" />
+            <img src={pic6} alt="Hero" />
             </div>
           <div className="hero-text">
             <h2>Become a great leader in just a few weeks</h2>
@@ -42,25 +46,25 @@ function Home() {
           <div className="course-item">
              <img src={pic1} alt="Hero" />
              <div className="course-details">
-              <h3>Certificate in Culinary Arts</h3>
+              <h3>Sales and Marketing</h3>
               <p>Duration: 6 months</p>
-              <p>Learn the fundamentals of culinary arts, including cooking techniques, food safety, and kitchen management.</p>
+              <p>Sales and Marketing is a dynamic course designed to provide students with a solid understanding of the principles and strategies used to promote and sell products or services.</p>
               </div>
           </div>
           <div className="course-item">
              <img src={pic1} alt="Hero" />
              <div className="course-details">
-              <h3>Certificate in Culinary Arts</h3>
+              <h3>Information Science</h3>
               <p>Duration: 6 months</p>
-              <p>Learn the fundamentals of culinary arts, including cooking techniques, food safety, and kitchen management.</p>
+              <p>Information Science is a versatile course that focuses on the collection, organization, management, and dissemination of information.</p>
               </div>
           </div>
           <div className="course-item">
              <img src={pic1} alt="Hero" />
              <div className="course-details">
-              <h3>Certificate in Culinary Arts</h3>
+              <h3>Banking and Finance</h3>
               <p>Duration: 6 months</p>
-              <p>Learn the fundamentals of culinary arts, including cooking techniques, food safety, and kitchen management.</p>
+              <p>Banking and Finance is a comprehensive course that introduces students to the principles and practices of the financial sector.</p>
               </div>
           </div>
 
@@ -71,27 +75,27 @@ function Home() {
            </div>
          <div className="courses-list">
           <div className="course-item">
-             <img src={pic1} alt="Hero" />
+             <img src={pic2} alt="Hero" />
              <div className="course-details">
-              <h3>Certificate in Culinary Arts</h3>
+              <h3>Quick Books</h3>
               <p>Duration: 6 months</p>
-              <p>Learn the fundamentals of culinary arts, including cooking techniques, food safety, and kitchen management.</p>
+              <p>The QuickBooks course offers a hands-on learning experience, guiding students through real-world accounting scenarios using the software. </p>
               </div>
           </div>
           <div className="course-item">
-             <img src={pic1} alt="Hero" />
+             <img src={pic4} alt="Hero" />
              <div className="course-details">
-              <h3>Certificate in Culinary Arts</h3>
+              <h3>Office Management</h3>
               <p>Duration: 6 months</p>
-              <p>Learn the fundamentals of culinary arts, including cooking techniques, food safety, and kitchen management.</p>
+              <p>Office Management is a comprehensive course that equips students with the essential skills needed to efficiently run and organize office operations. </p>
               </div>
           </div>
           <div className="course-item">
-             <img src={pic1} alt="Hero" />
+             <img src={pic5} alt="Hero" />
              <div className="course-details">
-              <h3>Certificate in Culinary Arts</h3>
+              <h3>Book Keeping</h3>
               <p>Duration: 6 months</p>
-              <p>Learn the fundamentals of culinary arts, including cooking techniques, food safety, and kitchen management.</p>
+              <p>Book Keeping is a foundational course that teaches students how to systematically record, organize, and manage financial transactions for businesses or organizations. </p>
               </div>
           </div>
 
