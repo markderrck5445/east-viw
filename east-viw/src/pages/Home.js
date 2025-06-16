@@ -47,7 +47,6 @@ function Home() {
              <img src={pic1} alt="Hero" />
              <div className="course-details">
               <h3>Sales and Marketing</h3>
-              <p>Duration: 6 months</p>
               <p>Sales and Marketing is a dynamic course designed to provide students with a solid understanding of the principles and strategies used to promote and sell products or services.</p>
               </div>
           </div>
@@ -55,7 +54,6 @@ function Home() {
              <img src={pic1} alt="Hero" />
              <div className="course-details">
               <h3>Information Science</h3>
-              <p>Duration: 6 months</p>
               <p>Information Science is a versatile course that focuses on the collection, organization, management, and dissemination of information.</p>
               </div>
           </div>
@@ -63,7 +61,6 @@ function Home() {
              <img src={pic1} alt="Hero" />
              <div className="course-details">
               <h3>Banking and Finance</h3>
-              <p>Duration: 6 months</p>
               <p>Banking and Finance is a comprehensive course that introduces students to the principles and practices of the financial sector.</p>
               </div>
           </div>
@@ -78,7 +75,6 @@ function Home() {
              <img src={pic2} alt="Hero" />
              <div className="course-details">
               <h3>Quick Books</h3>
-              <p>Duration: 6 months</p>
               <p>The QuickBooks course offers a hands-on learning experience, guiding students through real-world accounting scenarios using the software. </p>
               </div>
           </div>
@@ -86,7 +82,6 @@ function Home() {
              <img src={pic4} alt="Hero" />
              <div className="course-details">
               <h3>Office Management</h3>
-              <p>Duration: 6 months</p>
               <p>Office Management is a comprehensive course that equips students with the essential skills needed to efficiently run and organize office operations. </p>
               </div>
           </div>
@@ -94,7 +89,6 @@ function Home() {
              <img src={pic5} alt="Hero" />
              <div className="course-details">
               <h3>Book Keeping</h3>
-              <p>Duration: 6 months</p>
               <p>Book Keeping is a foundational course that teaches students how to systematically record, organize, and manage financial transactions for businesses or organizations. </p>
               </div>
           </div>
