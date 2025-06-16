@@ -5,7 +5,7 @@ import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/contact';
-import Academics from './pages/Academics';
+import Courses from './pages/Courses';
 import Career from './pages/Career';
 import Footer from './components/Footer';
 
@@ -22,7 +22,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About/>} />
             <Route path="/contact" element={<Contact/>} />
-            <Route path="/academics" element={<Academics/>} />
+            <Route path="/Courses" element={<Courses/>} />
             <Route path="/career" element={<Career/>} />
             <Route path="footer" element={<Footer/>} />
           </Routes>
