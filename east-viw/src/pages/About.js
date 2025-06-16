@@ -1,4 +1,5 @@
 import React from 'react'
+import pic7 from './img/pic7.jpg';
 
 function About() {
   return (
@@ -47,6 +48,39 @@ function About() {
           </div>
         </div>
       </div>
+{/* about text */}
+      <div className="about-text">
+        <div className="hero-img">
+          <img src={pic7} alt="Hero" />
+          <div className="hero-txt">
+            <h2>Welcome to EastView</h2>
+            <p>
+              East View is a leading educational institution dedicated to fostering a culture of 
+              learning, innovation, and community engagement. Our commitment to excellence and 
+              inclusivity shapes the educational journey of every student who walks through our doors.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* about decription */}
+      <div className="about-description">
+       <div className="about-desc">
+        <img src={pic7} alt="About East View" />
+        <div className="about-desc-text">
+          <h2>About East View</h2>
+          <p>
+            East View is more than just an educational institution; it is a community where 
+            students are encouraged to explore their passions, develop their skills, and 
+            make meaningful contributions to society. Our diverse programs and dedicated faculty 
+            ensure that every student receives a well-rounded education that prepares them for 
+            success in their future endeavors.
+          </p>
+       </div>
+    </div>
+
+    </div>
+
     </div>
   )
 }
