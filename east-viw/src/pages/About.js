@@ -80,7 +80,20 @@ function About() {
     </div>
 
     </div>
-
+<div className="about-description-text">
+  <div className="about-desc-text">
+    <img src={pic7} alt="Hero" />
+    <div className="about-desc-text-content">
+      <h2>Diverse course Offering</h2>
+      <p>
+        At East View, we offer a wide range of courses designed to cater to the diverse interests 
+        and career aspirations of our students. From STEM fields to the arts and humanities, 
+        our curriculum is designed to provide a comprehensive education that equips students with 
+        the knowledge and skills needed to excel in their chosen paths.
+      </p>
+    </div>
+  </div>
+</div>
     </div>
   )
 }
