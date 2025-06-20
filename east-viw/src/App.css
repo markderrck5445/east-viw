@@ -317,7 +317,7 @@
 
 /* Header Section with Background Image */
 .about-header {
-  background-image: url('pages/img/pic1.jpg'); 
+  background-image: url('./pages/img/pic1.jpg'); 
   background-size: cover;
   background-position: center; 
   position: relative;
@@ -1603,6 +1603,367 @@ footer {
   gap: 2rem; 
   margin-bottom: 2rem; 
 }
+
+/* AcademicPage.css */
+
+
+
+.academic-page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  color: #374151;
+  line-height: 1.6;
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+/* Header Section */
+.header {
+  /* background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); */
+  color: white;
+  background-image: url('./pages/img/pic1.jpg');
+  padding: 5rem 0;
+}
+
+.header-content {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.header p {
+  font-size: 1.25rem;
+  max-width: 48rem;
+  margin: 0 auto;
+  opacity: 0.9;
+  line-height: 1.75;
+}
+
+/* Navigation */
+.nav-section {
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav-content {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+.tab:hover {
+  background-color: #e5e7eb;
+  transform: translateY(-2px);
+}
+
+.tab.active {
+  background-color: #2563eb;
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Main Content */
+.main-content {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.section {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Intro */
+.section-intro {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.section-intro h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.section-intro p {
+  font-size: 1.125rem;
+  color: #6b7280;
+  line-height: 1.75;
+}
+
+/* Grid Layouts */
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-1 { 
+  grid-template-columns: 1fr; 
+}
+
+.grid-2 { 
+  grid-template-columns: repeat(2, 1fr); 
+}
+
+.grid-3 { 
+  grid-template-columns: repeat(3, 1fr); 
+}
+
+.grid-4 { 
+  grid-template-columns: repeat(4, 1fr); 
+}
+
+/* Cards */
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Course Cards */
+.course-card {
+  border-left: 4px solid #2563eb;
+}
+
+.course-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.course-card p {
+  color: #6b7280;
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.course-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.course-level {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.course-duration {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Stat Cards */
+.stat-card {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: #6b7280;
+}
+
+/* Faculty Cards */
+.faculty-card {
+  text-align: center;
+}
+
+.faculty-avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.faculty-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.faculty-title {
+  color: #2563eb;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.faculty-bio {
+  color: #6b7280;
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .grid-4 { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  
+  .grid-3 { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  
+  .header h1 { 
+    font-size: 2.5rem; 
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-4, 
+  .grid-3, 
+  .grid-2 { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .header h1 { 
+    font-size: 2rem; 
+  }
+  
+  .header p { 
+    font-size: 1rem; 
+  }
+  
+  .tabs { 
+    gap: 0.5rem; 
+  }
+  
+  .tab { 
+    padding: 0.5rem 1rem; 
+    font-size: 0.75rem; 
+  }
+  
+  .main-content { 
+    padding: 2rem 1rem; 
+  }
+  
+  .section-intro { 
+    padding: 1.5rem; 
+  }
+  
+  .card { 
+    padding: 1.5rem; 
+  }
+}
+
+@media (max-width: 640px) {
+  .header { 
+    padding: 3rem 0; 
+  }
+  
+  .course-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+}
+
+/* Additional utility classes for smoother animations */
+.section.active {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Ensure proper spacing and layout */
+.academic-page > * {
+  position: relative;
+}
+
+/* Improve focus states for accessibility */
+.tab:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Enhance hover states */
+.card:hover .course-level {
+  background-color: #dbeafe;
+}
+
+.card:hover .faculty-avatar {
+  transform: scale(1.05);
+}
+
+/* Smooth transitions for all interactive elements */
+.faculty-avatar {
+  transition: transform 0.3s ease;
+}
+
+.course-level {
+  transition: background-color 0.3s ease;
+}
+
 
 /* Footer Column Base Styles */
 
