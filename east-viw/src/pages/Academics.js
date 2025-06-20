@@ -10,7 +10,7 @@ const Academic = () => {
     { number: '95%', label: 'College Acceptance Rate' },
     { number: '24', label: 'Average Class Size' },
     { number: '40+', label: 'Course Offerings' },
-    { number: '10', label: 'Extracurricular Activities' },
+    { label: 'Extracurricular Activities' },
     
   ];
 
@@ -18,130 +18,202 @@ const Academic = () => {
 
   const elementaryCourses = [
     {
-      title: 'Language Arts',
+      title: 'Languages ',
       description: 'Comprehensive reading, writing, speaking, and listening skills development through literature-based instruction and creative writing.',
-      level: 'Core Subject',
+      level: 'Ksh 15,000',
       duration: 'Daily'
     },
     {
-      title: 'Mathematics',
-      description: 'Problem-solving approach to mathematics covering number sense, operations, geometry, measurement, and data analysis.',
-      level: 'Core Subject',
-      duration: 'Daily'
+      title: 'Salesmanship',
+      description: 'Salesmanship is a course that focuses on the art and techniques of selling products or services effectively.',
+      level: 'Ksh 12,000',
+      duration: '4 TERMS'
     },
     {
-      title: 'Science Exploration',
-      description: 'Hands-on scientific inquiry covering life science, physical science, earth science, and scientific method.',
-      level: 'Core Subject',
-      duration: '4x/week'
+      title: 'Store Keeping',
+      description: 'Store Keeping is a course that teaches students the principles and practices of managing inventory and supplies within an organization. Learners will gain skills in stock control, record keeping, inventory management, and the proper handling and storage of goods.',
+      level: 'Ksh 12,000',
+      duration: '4 TERMS'
     },
     {
-      title: 'Social Studies',
-      description: 'Understanding communities, cultures, history, and geography through interactive learning and project-based activities.',
-      level: 'Core Subject',
-      duration: '4x/week'
+      title: 'Food and Beverage',
+      description: 'Food and Beverage is a course designed to provide students with knowledge and practical skills in the preparation, service, and management of food and drinks',
+      level: 'Ksh 12,000',
+      duration: '4 TERMS'
     },
     {
       title: 'Arts & Music',
       description: 'Creative expression through visual arts, music appreciation, and performance opportunities.',
-      level: 'Enrichment',
+      level: 'Ksh 12,000',
       duration: '3x/week'
     },
     {
-      title: 'Physical Education',
-      description: 'Motor skills development, team sports, fitness, and healthy lifestyle habits.',
-      level: 'Enrichment',
-      duration: '3x/week'
+      title: 'Electrical Engineering',
+      description: 'Electrical Engineering is a course that equips students with the knowledge and skills needed to design, develop, and maintain electrical systems and equipment.',
+      level:'Ksh 12,000',
+      duration: '4 TERMS'
     }
   ];
 
   const middleSchoolCourses = [
     {
-      title: 'English Language Arts',
-      description: 'Advanced reading comprehension, literary analysis, research skills, and expressive writing across multiple genres.',
-      level: 'Core Subject',
-      duration: 'Daily'
+      title: 'Social Works',
+      description: 'Social Work is a course that prepares students to support individuals, families, and communities in overcoming challenges and improving their well-being.',
+      level: 'Ksh 12,000',
+      duration: '4 TERMS'
     },
     {
-      title: 'Pre-Algebra & Algebra I',
-      description: 'Transition from arithmetic to algebraic thinking, including equations, functions, and mathematical reasoning.',
-      level: 'Core Subject',
-      duration: 'Daily'
+      title: 'Project Development',
+      description: 'Project Development is a course that teaches students the essential steps involved in planning, executing, and managing projects from start to finish.',
+      level: 'ksh 12,000',
+      duration: '4 TERMS'
     },
     {
-      title: 'Life & Physical Science',
-      description: 'Laboratory-based science courses covering biology, chemistry, physics, and scientific method.',
-      level: 'Core Subject',
-      duration: 'Daily'
+      title: 'Archive Information Studies',
+      description: 'Archive Information Studies is a course focused on the principles and practices of managing, preserving, and organizing records and archival materials.',
+      level: 'Ksh 12,000',
+      duration: '4 TERMS'
     },
     {
-      title: 'World History & Geography',
-      description: 'Comprehensive study of world civilizations, cultures, and geographic regions with emphasis on critical analysis.',
-      level: 'Core Subject',
-      duration: 'Daily'
+      title: 'ECDE',
+      description: 'ECDE (Early Childhood Development and Education) is a course designed to equip students with the knowledge and skills needed to support the growth and learning of young children.',
+      level: 'Ksh 15,000',
+      duration: '12 MONTHS'
     },
     {
-      title: 'World Languages',
+      title: 'Accountancy',
       description: 'Introduction to Spanish or French with focus on communication, culture, and language acquisition.',
-      level: 'Elective',
-      duration: 'Daily'
+      level: 'Ksh 12,000',
+      duration: '12 MONTHS'
     },
     {
       title: 'Technology & Engineering',
       description: 'Digital literacy, coding basics, robotics, and engineering design process through hands-on projects.',
-      level: 'Elective',
+      level: 'ksh 20,000',
+      duration: '3x/week'
+    },
+    {
+      title: 'Technology & Engineering',
+      description: 'Digital literacy, coding basics, robotics, and engineering design process through hands-on projects.',
+      level: 'Ksh 12,000',
       duration: '3x/week'
     }
   ];
 
   const highSchoolCourses = [
     {
-      title: 'AP English Literature',
-      description: 'College-level analysis of literature, advanced writing skills, and preparation for AP examination.',
-      level: 'AP Course',
-      duration: '1 Year'
+      title: 'Community and Social Work',
+      description: 'Community and Social Work is a course that prepares students to support and empower individuals, families, and communities facing social challenges.',
+      level: 'ksh 15,000',
+      duration: '24 MONTHS'
     },
     {
-      title: 'AP Calculus AB/BC',
-      description: 'Advanced mathematical concepts including limits, derivatives, integrals, and their applications.',
-      level: 'AP Course',
-      duration: '1 Year'
+      title: 'Project Development',
+      description: 'Project Development is a course that teaches students the key processes involved in initiating, planning, executing, and completing projects successfully.',
+      level: 'ksh 15,000',
+      duration: '18 MONTHS'
     },
     {
-      title: 'AP Biology',
+      title: 'HIV/ Testing and Counseling',
       description: 'College-level biology covering molecular biology, genetics, evolution, and ecology with extensive lab work.',
-      level: 'AP Course',
-      duration: '1 Year'
+      level: 'Ksh 18,000',
+      duration: '18 MONTHS'
     },
     {
-      title: 'AP Chemistry',
+      title: 'Community Health and Development',
       description: 'Advanced chemistry concepts including atomic structure, bonding, thermodynamics, and kinetics.',
-      level: 'AP Course',
-      duration: '1 Year'
+      level: 'Ksh 18,000',
+      duration: 'Ksh 18,000'
     },
     {
-      title: 'AP U.S. History',
-      description: 'Comprehensive study of American history from pre-Columbian times to present with emphasis on historical thinking.',
-      level: 'AP Course',
-      duration: '1 Year'
+      title: 'Criminology',
+      description: 'Criminology is a course that examines the nature, causes, and consequences of crime in society. Students explore topics such as criminal behavior, the justice system, crime prevention, and the social and psychological factors influencing criminal activity. ',
+      level: 'Ksh 18,000',
+      duration: '12 MONTHS'
     },
     {
       title: 'Computer Science',
       description: 'Programming fundamentals, algorithms, data structures, and software development using modern languages.',
-      level: 'Elective',
-      duration: '1 Semester'
+      level: 'ksh 18,000',
+      duration: '18 MONTHS'
     },
     {
       title: 'Business & Economics',
       description: 'Principles of economics, business management, entrepreneurship, and financial literacy.',
-      level: 'Elective',
+      level: 'Ksh 18,000',
       duration: '1 Semester'
     },
     {
-      title: 'Fine Arts',
-      description: 'Visual arts, music performance, theater, and digital media with opportunities for portfolio development.',
-      level: 'Elective',
+      title: 'Accountancy',
+      description: 'Accountancy is a course that provides students with essential knowledge and practical skills in financial management, bookkeeping, and accounting principles. The curriculum includes topics such as preparing financial statements, managing budgets, auditing, and tax compliance. Students learn how to accurately record and analyze financial transactions, preparing them for careers in accounting, finance, and business administration.',
+      level: 'Ksh 15,000',
       duration: '1 Semester'
+    },
+    {
+      title: 'Hospitality Management',
+      description: 'Hospitality Management is a course that prepares students for careers in the hospitality industry, focusing on the management and operation of hotels, restaurants, and other service-oriented businesses. ',
+      level: 'Ksh 18,000',  
+      duration: '18 MONTHS'
+    },
+    {
+      title:'Supply Chain Management',
+      description: 'Supply Chain Management is a course that focuses on the efficient management of the flow of goods, services, and information from suppliers to customers.',
+      level: 'Ksh 18,000',
+      duration: '18 MONTHS'
+    },
+    {
+      title:'Secretarial Management',
+      description: 'Secretarial Management is a course that trains students in the essential skills required to efficiently manage office operations and administrative tasks. The curriculum covers areas such as office organization, communication, record keeping, scheduling, and the use of office technology. ',
+      level: 'Ksh 15,000',
+      duration: '18 MONTHS'
+    },
+    {
+      title:'Sales and Marketing',
+      description: 'Sales and Marketing is a course designed to equip students with the knowledge and skills needed to effectively promote and sell products or services. The curriculum covers key areas such as market research, consumer behavior, sales techniques, branding, advertising, and digital marketing.',
+      level: 'Ksh 15,000',
+      duration: '18 MONTHS'
+    },
+    {
+      title:'Human Resource Management',
+      description: 'Human Resource Management is a course that focuses on the effective management of people within an organization. Students learn about recruitment, training and development, performance management, employee relations, and labor laws. ',
+      level: 'Ksh 15,000',
+      duration: '18 MONTHS'
+    },
+    {
+      title:'Banking and Finance',
+      description: 'Supply Chain Management is a course that focuses on the efficient management of the flow of goods, services, and information from suppliers to customers.',
+      level: 'Ksh 18,000',
+      duration: '18 MONTHS'
+    },
+    {
+      title:'Maritme Transport and Logistics',
+      description: 'Maritime Transport and Logistics is a course that provides students with knowledge and skills related to the movement of goods and people by sea. The curriculum covers topics such as shipping operations, port management, supply chain logistics, maritime safety, and international trade regulations.',
+      level: 'Ksh 18,000',
+      duration: '18 MONTHS'
+    },
+    {
+      title:'Internatiolal Freight Management',
+      description: 'International Freight Management is a course that focuses on the efficient movement of goods across international borders. Students learn about global shipping procedures, customs regulations, documentation, freight forwarding, and logistics planning. ',
+      level: 'Ksh 15,000',
+      duration: '18 MONTHS'
+    },
+    {
+      title:'Public Relations and Communication',
+      description: 'Public Relations and Communication is a course that equips students with the skills needed to manage an organization’s image and effectively communicate with various audiences. The curriculum covers topics such as media relations, corporate communication, event planning, crisis management, and strategic messaging. ',
+      level: 'Ksh 18,000',
+      duration: '18 MONTHS'
+    },
+    {
+      title:'Front Office Management',
+      description: 'Front Office Management is a course that prepares students to efficiently oversee the operations of a front office in hospitality and business environments. The curriculum covers areas such as reception duties, guest relations, reservation systems, communication skills, and office administration. Students gain practical experience in managing front desk activities, handling customer inquiries, and ensuring smooth day-to-day operations, equipping them for roles in hotels, offices, and customer service centers.',
+      level: 'Ksh 18,000',
+      duration: '18 MONTHS'
+    },
+    {
+      title:'Customer Service Management',
+      description: 'Customer Service Management is a course that teaches students how to effectively handle customer interactions and ensure high levels of satisfaction. The curriculum covers topics such as communication skills, problem-solving, conflict resolution, and customer relationship management.',
+      level: 'Ksh 18,000',
+      duration: '18 MONTHS'
     }
   ];
 
@@ -297,12 +369,9 @@ const Academic = () => {
         {activeSection === 'middle' && (
           <div className="section active">
             <div className="section-intro">
-              <h2>Middle School (6-8)</h2>
+              <h2>Certificate Courses</h2>
               <p>
-                Our middle school program provides a bridge between elementary and high school, 
-                offering more specialized instruction while supporting students through their 
-                developmental changes. We emphasize critical thinking, independence, and 
-                preparation for advanced coursework.
+               These courses are ideal for individuals seeking to enhance their qualifications, start a new career, or gain expertise in a particular area. Certificate Courses are typically shorter in duration and focus on hands-on training, making them a valuable option for both beginners and professionals looking to upskill
               </p>
             </div>
 
@@ -318,11 +387,9 @@ const Academic = () => {
         {activeSection === 'high' && (
           <div className="section active">
             <div className="section-intro">
-              <h2>High School (9-12)</h2>
+              <h2>Diploma Courses</h2>
               <p>
-                Our high school program offers rigorous college-preparatory courses, Advanced 
-                Placement options, and diverse electives. We focus on developing independent 
-                learners ready for higher education and career success.
+                Diploma Courses are comprehensive programs designed to provide in-depth knowledge and practical skills in a specific field of study. These courses are ideal for individuals seeking to enhance their qualifications, start a new career, or gain expertise in a particular area. Diploma Courses are typically longer in duration and focus on hands-on training, making them a valuable option for both beginners and professionals looking to upskill.
               </p>
             </div>
 
