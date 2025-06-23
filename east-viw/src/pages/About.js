@@ -7,6 +7,11 @@ import footer from '../components/Footer';
 function About() {
   return (
     <div>
+
+      <div className="about-header">
+           <h1>About East View</h1>
+        </div>
+        
       <div className="about-text">
         <div className="hero-img">
           <img src={pic7} alt="Hero" />
@@ -23,9 +28,7 @@ function About() {
 
 
        <div className="about-container">
-        <div className="about-header">
-           <h1>About East View</h1>
-        </div>
+        
        
         <div className="about-content">
           <div className="about-section">

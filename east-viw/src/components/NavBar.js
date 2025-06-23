@@ -60,7 +60,7 @@ function Navbar() {
           <nav className="navbar-content">
             {/* Brand/Logo */}
             <div className="navbar-brand">
-              <div className="brand-link">EastView Trainig Institute</div>
+              <div className="brand-link">ETI</div>
             </div>
 
             {/* Main navigation links - hidden on mobile */}
