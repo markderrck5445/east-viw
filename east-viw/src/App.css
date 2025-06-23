@@ -1,5 +1,9 @@
 /* Navbar.css */
 
+* {
+ font-family: poppins, sans-serif;
+}
+
 .navbar-container {
   position: sticky;
   top: 0;
@@ -9,7 +13,7 @@
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -124,8 +128,8 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  margin-top: -10px;
   z-index: 1001;
-  background-color: #1e40af;
   border-radius: 6px;
   padding: 8px;
 }
