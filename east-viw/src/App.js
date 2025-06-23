@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/contact';
 import Academics from './pages/Academics';
+import Enroll from './pages/Enroll'; 
 import Footer from './components/Footer';
 
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/about" element={<About/>} />
             <Route path="/academics" element={<Academics/>} />
             <Route path="/contact" element={<Contact/>} />
+            <Route path="/enroll" element={<Enroll/>} />
             <Route path="footer" element={<Footer/>} />
           </Routes>
         </div>
