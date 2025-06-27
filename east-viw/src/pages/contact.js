@@ -13,7 +13,9 @@ const ContactForm = () => {
   const [errors, setErrors] = useState({});
 
   // Admin email - replace with your actual admin email
-  const ADMIN_EMAIL = 'admin@yourcompany.com';
+  const ADMIN_EMAIL = 'nguyagwamarkderrick@gmail.com';
+   const COMPANY_NAME = 'East View Training Institute'; 
+  const COMPANY_EMAIL = 'nguyagwamarkderrick@gmail.com'; 
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
