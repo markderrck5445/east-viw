@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Send, User, Mail, Phone, Calendar, MapPin, BookOpen, Users, FileText, AlertCircle, CheckCircle, X } from 'lucide-react';
 
-
 export default function EnrollmentForm() {
   const [formData, setFormData] = useState({
     // Student Information
@@ -14,7 +13,7 @@ export default function EnrollmentForm() {
     address: '',
     city: '',
     state: '',
-    Code: '',
+    zipCode: '',
     
     // Parent/Guardian Information
     parentName: '',
@@ -23,7 +22,7 @@ export default function EnrollmentForm() {
     relationship: '',
     
     // Academic Information
-    previousSchool: '',
+    courseSchool: '',
     gradeLevel: '',
     startDate: '',
     
@@ -36,6 +35,20 @@ export default function EnrollmentForm() {
 
   const [buttonState, setButtonState] = useState('idle'); // 'idle', 'sending', 'sent', 'error'
   const [showDemo, setShowDemo] = useState(false);
+
+  // EMAIL CONFIGURATION - Replace with your actual values
+  const EMAIL_CONFIG = {
+    // Option 1: Formspree (Recommended)
+    FORMSPREE_ENDPOINT: 'https://formspree.io/f/xpwrbdaj', 
+    
+    // Option 2: EmailJS (Alternative)
+    EMAILJS_SERVICE_ID: 'service_liocwg3',
+    EMAILJS_TEMPLATE_ID: '9356e98',
+    EMAILJS_PUBLIC_KEY: '9EBYaBEttjSHkq8s1',
+    
+    // School admin email
+    ADMIN_EMAIL: 'nguyagwamarkderrick@gmail.com' 
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -69,6 +82,33 @@ export default function EnrollmentForm() {
     return true;
   };
 
+
+
+
+  
+  const submitWithFormspree = async () => {
+    const response = await fetch(EMAIL_CONFIG.FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...formData,
+        _replyto: formData.parentEmail, // Set reply-to address
+        _subject: `New Student Enrollment: ${formData.firstName} ${formData.lastName}`,
+        _cc: EMAIL_CONFIG.ADMIN_EMAIL, 
+        submissionDate: new Date().toLocaleString(),
+        formType: 'Student Enrollment Form'
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to submit form');
+    }
+
+    return response.json();
+  };
+
   const handleSubmit = async () => {
     if (!validateForm()) {
       setButtonState('error');
@@ -79,8 +119,8 @@ export default function EnrollmentForm() {
     setButtonState('sending');
 
     try {
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Email integration - using Formspree
+      await submitWithFormspree();
       
       setButtonState('sent');
       
@@ -89,7 +129,7 @@ export default function EnrollmentForm() {
         setFormData({
           firstName: '', lastName: '', dateOfBirth: '', gender: '', email: '', phone: '',
           address: '', city: '', state: '', zipCode: '', parentName: '', parentEmail: '',
-          parentPhone: '', relationship: '', previousSchool: '', gradeLevel: '', startDate: '',
+          parentPhone: '', relationship: '', courseSchool: '', gradeLevel: '', startDate: '',
           medicalConditions: '', emergencyContact: '', emergencyPhone: '', additionalNotes: ''
         });
         setButtonState('idle');
@@ -108,17 +148,17 @@ export default function EnrollmentForm() {
       lastName: 'Smith',
       dateOfBirth: '2010-05-15',
       gender: 'male',
-      email: 'john.smith@email.com',
-      phone: '555-0123',
+      email: 'johnsmith@email.com',
+      phone: '0712-345-678',
       address: '123 Main Street',
       city: 'Anytown',
       state: 'CA',
-      Code: '90210',
+      zipCode: '90210',
       parentName: 'Jane Smith',
       parentEmail: 'jane.smith@email.com',
       parentPhone: '555-0124',
       relationship: 'parent',
-      previousSchool: 'Anytown Elementary',
+      courseSchool: 'Information Communication Technology',
       gradeLevel: '8th',
       startDate: '2024-08-01',
       medicalConditions: 'No known allergies',
@@ -164,6 +204,8 @@ export default function EnrollmentForm() {
 
   return (
     <div className="enrollment-container">
+      
+
       <div className="enrollment-wrapper">
         {/* Header */}
         <div className="enrollment-header">
@@ -189,20 +231,21 @@ export default function EnrollmentForm() {
           </div>
         )}
 
-        {/* Demo Instructions */}
+        {/* Demo Instructions - Updated with Email Setup */}
         <div className="demo-instructions">
           <div className="demo-content">
             <AlertCircle className="demo-icon" />
             <div className="demo-text">
-              <h3 className="demo-title">Setup Instructions</h3>
+              <h3 className="demo-title">Email Integration Setup</h3>
               <p className="demo-description">
-                This is a fully functional enrollment form. To use it in production:
+                This form now includes email integration! To receive enrollment submissions via email:
               </p>
               <ol className="demo-list">
                 <li>Sign up for a free account at <a href="https://formspree.io" target="_blank" rel="noopener noreferrer">Formspree.io</a></li>
                 <li>Create a new form and get your unique form ID</li>
-                <li>Replace the demo submission logic with the real Formspree endpoint</li>
-                <li>Test with real data</li>
+                <li>Replace 'YOUR_FORM_ID' in the EMAIL_CONFIG with your actual form ID</li>
+                <li>Update ADMIN_EMAIL with your school's email address</li>
+                <li>Test with real data - forms will be sent directly to your email!</li>
               </ol>
               <button onClick={fillDemoData} className="demo-button">
                 Fill Demo Data
@@ -334,7 +377,7 @@ export default function EnrollmentForm() {
               </div>
               
               <div className="form-group">
-                <label className="form-label">ZIP Code *</label>
+                <label className="form-label">Address Code *</label>
                 <input
                   type="text"
                   name="zipCode"
@@ -419,7 +462,7 @@ export default function EnrollmentForm() {
             
             <div className="form-grid">
               <div className="form-group">
-                <label className="form-label">Previous School</label>
+                <label className="form-label">Course</label>
                 <input
                   type="text"
                   name="previousSchool"
@@ -439,10 +482,10 @@ export default function EnrollmentForm() {
                   className="form-input"
                 >
                   <option value="">Select Level</option>
-                  <option value="1st">Artisan</option>
-                  <option value="2nd">Certificate</option>
-                  <option value="3rd">Diploma</option>
-                  <option value="4th">Higher Diploma</option>
+                  <option value="Artisan">Artisan</option>
+                  <option value="Certificate">Certificate</option>
+                  <option value="Diploma">Diploma</option>
+                  <option value="Higher Diploma">Higher Diploma</option>
                 </select>
               </div>
               
