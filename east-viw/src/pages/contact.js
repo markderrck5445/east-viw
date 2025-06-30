@@ -122,7 +122,7 @@ const ContactForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: '1fa95fbd-4eab-83da-703a06dba72', // Get free key from web3forms.com
+          access_key: '1fa95fbd-4eab-83da-703a06dba72',
           name: `${emailData.firstName} ${emailData.lastName}`,
           email: emailData.email,
           message: emailData.message,
@@ -218,7 +218,7 @@ const ContactForm = () => {
     <div>
       <div className="contact-container">
         <div className="contact-header">
-          <h1>Contact Us</h1>
+          <h1>Get in touch</h1>
           <p>We are here to assist you with any inquiries or support you may need. Feel free to reach out to us through the following channels:</p>
         </div>
       </div>
