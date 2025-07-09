@@ -79,7 +79,7 @@ const ContactForm = () => {
             message: emailData.message,
             reply_to: emailData.email
           },
-          'YOUR_PUBLIC_KEY'      // Replace with your EmailJS public key
+          'YOUR_PUBLIC_KEY'      
         );
         
         return { success: true, method: 'emailjs' };
