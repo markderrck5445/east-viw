@@ -44,6 +44,34 @@ function Navbar() {
     };
   }, [isMenuOpen]);
 
+  // ADD THIS: Body class management for preventing scroll when menu is open
+  useEffect(() => {
+    if (isMobile && isMenuOpen) {
+      document.body.classList.add('mobile-menu-open');
+    } else {
+      document.body.classList.remove('mobile-menu-open');
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.classList.remove('mobile-menu-open');
+    };
+  }, [isMobile, isMenuOpen]);
+
+  // ADD THIS: Keyboard navigation support
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isMenuOpen]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -109,50 +137,67 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu panel */}
+      {/* UPDATED: Mobile menu panel with overlay */}
       {isMobile && isMenuOpen && (
-        <div className="mobile-menu-panel">
-          <div className="mobile-menu-content">
-            <div className="mobile-section">
-              <h3>Navigation</h3>
-              <ul>
-                <li>
-                  <Link to="/" className={isActive('/')}>Home</Link>
-                </li>
-                <li>
-                  <Link to="/about" className={isActive('/about')}>About ETI</Link>
-                </li>
-                <li>
-                  <Link to="/academics" className={isActive('/academics')}>Academics</Link>
-                </li>
-                <li>
-                  <Link to="/contact" className={isActive('/contact')}>Contact</Link>
-                </li>
-                <li>
-                  <Link to="/Enroll" className={isActive('/Enroll')}>Enroll</Link>
-                </li>
-              </ul>
-            </div>
+        <>
+          {/* ADD THIS: Overlay */}
+          <div className="mobile-menu-overlay" onClick={() => setIsMenuOpen(false)}></div>
+          
+          {/* Mobile menu panel */}
+          <div className="mobile-menu-panel">
+            {/* ADD THIS: Close button */}
+            <button 
+              className="mobile-menu-close" 
+              onClick={() => setIsMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
 
-            <div className="mobile-section">
-              <h3>Contact Information</h3>
-              <div className="mobile-contact">
-                <span className="contact-item">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 7.89c.39.39 1.02.39 1.41 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  eastviewcollege@gmail.com
-                </span>
-                <span className="contact-item">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  +254 705 446 230/+254 700 123 456
-                </span>
+            <div className="mobile-menu-content">
+              <div className="mobile-section">
+                <h3>Navigation</h3>
+                <ul>
+                  <li>
+                    <Link to="/" className={isActive('/')}>Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/about" className={isActive('/about')}>About ETI</Link>
+                  </li>
+                  <li>
+                    <Link to="/academics" className={isActive('/academics')}>Academics</Link>
+                  </li>
+                  <li>
+                    <Link to="/contact" className={isActive('/contact')}>Contact</Link>
+                  </li>
+                  <li>
+                    <Link to="/Enroll" className={isActive('/Enroll')}>Enroll</Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="mobile-section">
+                <h3>Contact Information</h3>
+                <div className="mobile-contact">
+                  <span className="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 7.89c.39.39 1.02.39 1.41 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    eastviewcollege@gmail.com
+                  </span>
+                  <span className="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    +254 705 446 230/+254 700 123 456
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
