@@ -146,19 +146,11 @@ function Navbar() {
           {/* Mobile menu panel */}
           <div className="mobile-menu-panel">
             {/* ADD THIS: Close button */}
-            <button 
-              className="mobile-menu-close" 
-              onClick={() => setIsMenuOpen(false)}
-              aria-label="Close menu"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+          
 
             <div className="mobile-menu-content">
               <div className="mobile-section">
-                <h3>Navigation</h3>
+                
                 <ul>
                   <li>
                     <Link to="/" className={isActive('/')}>Home</Link>
