@@ -495,7 +495,7 @@ body.mobile-menu-open {
   background: white;
   margin-bottom: 40px;
   padding: 40px;
-  border-radius: 12px;
+  border-radius: px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -1035,7 +1035,7 @@ body.mobile-menu-open {
 
 .course-item {
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: all 0.4s ease;
@@ -1113,7 +1113,7 @@ body.mobile-menu-open {
   display: inline-block;
   background: rgba(102, 126, 234, 0.1);
   padding: 5px 15px;
-  border-radius: 20px;
+  border-radius: 10px;
   border: 1px solid rgba(102, 126, 234, 0.2);
 }
 
@@ -2549,16 +2549,16 @@ footer {
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
-
+/* 
 .from-blue-500 {
   --tw-gradient-from: #3b82f6;
   --tw-gradient-to: rgb(59 130 246 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
+} */
 
 .to-purple-600 {
   --tw-gradient-to: #9333ea;
-}
+} 
 
 .p-5 {
   padding: 1.25rem;
@@ -2708,10 +2708,10 @@ footer {
 .bg-blue-50 {
   background-color: #eff6ff;
 }
-
+/* 
 .text-blue-700 {
   color: #1d4ed8;
-}
+} */
 
 .border-blue-200 {
   border-color: #bfdbfe;
@@ -2729,9 +2729,6 @@ footer {
   border-width: 2px;
 }
 
-.border-blue-500 {
-  border-color: #3b82f6;
-}
 
 .border-t-transparent {
   border-top-color: transparent;
