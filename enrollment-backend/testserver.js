@@ -11,4 +11,4 @@ app.listen(PORT, () => {
   console.log(`Test server running on port ${PORT}`);
 });
 
-// Test this with: curl http://localhost:5000/test
+// Test this with: curl http://localhost:192.168.0.100/test

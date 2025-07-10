@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const HOST = '0.0.0.0';
 
 // Middleware
 app.use(cors());
@@ -149,10 +150,10 @@ app.post('/api/enrollment', async (req, res) => {
       message: 'Failed to process enrollment. Please try again.'
     });
   }
-});
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+}); 
+// Start the server
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on http://0.0.0.0:${PORT}`);
+  console.log(`Also accessible via your IP address`);
   console.log(`Email configured for: ${process.env.EMAIL_USER}`);
 });
