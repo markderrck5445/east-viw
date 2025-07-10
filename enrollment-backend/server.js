@@ -93,7 +93,7 @@ app.post('/api/enrollment', async (req, res) => {
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 30px; text-align: center;">
           <h1>🎓 Enrollment Confirmation</h1>
-          <p>Thank you for your enrollment application!</p>
+          <p>Thank you for your enrollment application To EastView Training Institute!</p>
         </div>
         
         <div style="padding: 30px; background: #f8f9fa;">
