@@ -1,33 +1,18 @@
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
-const os = require('os');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 const HOST = '0.0.0.0';
 
-// Enhanced CORS configuration
-app.use(cors({
-  origin: true, // Allow all origins in development
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
-}));
-
-// Enhanced middleware
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-
-// Add request logging
-app.use((req, res, next) => {
-  console.log(`${new Date().toISOString()} - ${req.method} ${req.path} - IP: ${req.ip}`);
-  next();
-});
+// Middleware
+app.use(cors());
+app.use(express.json());
 
 // Create email transporter
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER,
@@ -35,50 +20,18 @@ const transporter = nodemailer.createTransporter({
   }
 });
 
-// Enhanced health check endpoint
+// Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ 
     success: true, 
     message: 'Server is running',
-    timestamp: new Date().toISOString(),
-    server: {
-      port: PORT,
-      host: HOST,
-      nodeVersion: process.version,
-      platform: process.platform
-    },
-    client: {
-      ip: req.ip,
-      userAgent: req.get('User-Agent')
-    }
+    timestamp: new Date().toISOString()
   });
 });
 
-// Test endpoint for mobile debugging
-app.get('/api/test', (req, res) => {
-  res.json({
-    success: true,
-    message: 'Mobile connection test successful',
-    timestamp: new Date().toISOString(),
-    requestInfo: {
-      method: req.method,
-      headers: req.headers,
-      ip: req.ip,
-      protocol: req.protocol,
-      secure: req.secure
-    }
-  });
-});
-
-// Enrollment endpoint with enhanced error handling
+// Enrollment endpoint
 app.post('/api/enrollment', async (req, res) => {
   try {
-    console.log('Enrollment request received:', {
-      body: req.body,
-      ip: req.ip,
-      userAgent: req.get('User-Agent')
-    });
-
     const {
       firstName,
       lastName,
@@ -97,18 +50,7 @@ app.post('/api/enrollment', async (req, res) => {
     if (!firstName || !lastName || !email || !phone || !dateOfBirth || !course || !address || !city || !zipCode) {
       return res.status(400).json({
         success: false,
-        message: 'Please fill in all required fields',
-        missingFields: {
-          firstName: !firstName,
-          lastName: !lastName,
-          email: !email,
-          phone: !phone,
-          dateOfBirth: !dateOfBirth,
-          course: !course,
-          address: !address,
-          city: !city,
-          zipCode: !zipCode
-        }
+        message: 'Please fill in all required fields'
       });
     }
 
@@ -196,67 +138,22 @@ app.post('/api/enrollment', async (req, res) => {
       html: studentEmailHtml
     });
 
-    console.log('Enrollment processed successfully for:', email);
-
     res.json({
       success: true,
-      message: 'Enrollment application submitted successfully!',
-      timestamp: new Date().toISOString()
+      message: 'Enrollment application submitted successfully!'
     });
 
   } catch (error) {
-    console.error('Enrollment error:', error);
+    console.error('Error:', error);
     res.status(500).json({
       success: false,
-      message: 'Failed to process enrollment. Please try again.',
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      message: 'Failed to process enrollment. Please try again.'
     });
   }
-});
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error('Server error:', err);
-  res.status(500).json({
-    success: false,
-    message: 'Internal server error'
-  });
-});
-
-// 404 handler
-app.use('*', (req, res) => {
-  res.status(404).json({
-    success: false,
-    message: 'Endpoint not found',
-    path: req.originalUrl
-  });
-});
-
-// Get network interfaces to display IP addresses
-function getNetworkIPs() {
-  const interfaces = os.networkInterfaces();
-  const ips = [];
-  
-  Object.keys(interfaces).forEach(key => {
-    interfaces[key].forEach(details => {
-      if (details.family === 'IPv4' && !details.internal) {
-        ips.push(details.address);
-      }
-    });
-  });
-  
-  return ips;
-}
-
+}); 
 // Start the server
-app.listen(PORT, HOST, () => {
-  const networkIPs = getNetworkIPs();
-  
-  console.log(`🚀 Server running on http://${HOST}:${PORT}`);
-  console.log(`📱 Mobile access URLs:`);
-  networkIPs.forEach(ip => {
-    console.log(`   http://${ip}:${PORT}`);
-  });
-  console.log(`📧 Email configured for: ${process.env.EMAIL_USER}`);
-  console.log(`🔍 Test endpoint: http://[YOUR_IP]:${PORT}/api/test`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on http://0.0.0.0:${PORT}`);
+  console.log(`Also accessible via your IP address`);
+  console.log(`Email configured for: ${process.env.EMAIL_USER}`);
 });
