@@ -1,120 +1,475 @@
-// Auto-detect the server URL
-const API_BASE_URL = `http://${window.location.hostname}:${window.location.port || 3001}`;
+import React, { useState } from 'react';
+import { Mail, User, Phone, Calendar, GraduationCap, MapPin, AlertCircle, CheckCircle } from 'lucide-react';
 
-// Alternative: If you know your IP, you can hardcode it
-// const API_BASE_URL = 'http://192.168.1.100:3001'; // Replace with your actual IP
+export default function EnrollmentForm() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    idnumber: '',
+    dateOfBirth: '',
+    course: '',
+    address: '',
+    city: '',
+    zipCode: '',
+    emergencyContact: '',
+    emergencyPhone: ''
+  });
 
-// Form submission function
-async function submitEnrollment(formData) {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/enrollment`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
-    });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState('');
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+  // 🔧 SOLUTION: Dynamic server URL detection
+  const getServerUrl = () => {
+    // If we're on localhost (development), use localhost
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      return 'http://localhost:3001';
+    }
+    // Otherwise, use the same host as the frontend with port 3001
+    return `http://${window.location.hostname}:3001`;
+  };
+
+  const courses = [
+    'Diploma in Computer Science',
+    'Diploma in Business Administration',
+    'Diploma in Engineering',
+    'Diploma in Medicine',
+    'Diploma in Arts & Design',
+    'Diploma in Psychology',
+    'Diploma in Mathematics',
+    'Diploma in Literature',
+    'Diploma in Programming',
+    'Diploma in Information Technology',
+    'Diploma in Information Science',
+    'Diploma in Community and Information Systems',
+    'Diploma in Information Communication Technology',
+    'Diploma in Computer Engineering',
+    'Diploma in Electrical and Electronics Engineering',
+    'Diploma in Mechanical Engineering',
+    'Diploma in Community and Social Work',
+    'Diploma in Project Development',
+    'Diploma in Community and Health Development',
+    'Diploma in Archive Information Study',
+    'Diploma in Criminology and Security Studies',
+    'Diploma in Counselling Psychology',
+    'Diploma in ECDE',
+    'Diploma in Salesmanship',
+    'Diploma in Store Keeping and Management',
+    'Diploma in Supply Chain Management',
+    'Diploma in Business Management',
+    'Diploma in Secretarial Studies Management',
+    'Diploma in Human and Resource Management',
+    'Diploma in Banking and Finance',
+    'Diploma in Accountancy',
+    'Diploma in Maritime and Shipping Management',
+    'Diploma in International Freight and Logistics Management',
+    'Diploma in Public Relations',
+    'Diploma in Front Office Management',
+    'Diploma in Customer Service Management',
+    'Diploma in Property Management',
+    'Diploma in Project Management',
+    'Diploma in Clearing and Forwarding',
+    'Certificate in Computer Science',
+    'Certificate in Business Administration',
+    'Certificate in Engineering',
+    'Certificate in Medicine',
+    'Certificate in Arts & Design',
+    'Certificate in Psychology',
+    'Certificate in Mathematics',
+    'Certificate in Literature',
+    'Certificate in Programming',
+    'Certificate in Information Technology',
+    'Certificate in Information Science',
+    'Certificate in Community and Information Systems',
+    'Certificate in Information Communication Technology',
+    'Certificate in Computer Engineering',
+    'Certificate in Electrical and Electronics Engineering',
+    'Certificate in Mechanical Engineering',
+    'Certificate in Community and Social Work',
+    'Certificate in Project Development',
+    'Certificate in Community and Health Development',
+    'Certificate in Archive Information Study',
+    'Certificate in Criminology and Security Studies',
+    'Certificate in Counselling Psychology',
+    'Certificate in ECDE',
+    'Certificate in Salesmanship',
+    'Certificate in Store Keeping and Management',
+    'Certificate in Supply Chain Management',
+    'Certificate in Business Management',
+    'Certificate in Secretarial Studies Management',
+    'Certificate in Human and Resource Management',
+    'Certificate in Banking and Finance',
+    'Certificate in Accountancy',
+    'Certificate in Maritime and Shipping Management',
+    'Certificate in International Freight and Logistics Management',
+    'Certificate in Public Relations',
+    'Certificate in Front Office Management',
+    'Certificate in Customer Service Management',
+    'Certificate in Property Management',
+    'Certificate in Project Management',
+    'Certificate in Clearing and Forwarding',
+  ];
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'idnumber', 'dateOfBirth', 'course', 'address', 'city', 'zipCode'];
+    const missingFields = requiredFields.filter(field => !(formData[field] || '').trim());
+    
+    if (missingFields.length > 0) {
+      setMessage(`Please fill in all required fields: ${missingFields.join(', ')}`);
+      setMessageType('error');
+      return;
     }
 
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.error('Error submitting enrollment:', error);
-    return {
-      success: false,
-      message: 'Failed to connect to server. Please check your connection and try again.'
-    };
-  }
-}
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setMessage('Please enter a valid email address');
+      setMessageType('error');
+      return;
+    }
 
-// Health check function
-async function checkServerHealth() {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/health`);
-    const result = await response.json();
-    return result.success;
-  } catch (error) {
-    console.error('Health check failed:', error);
-    return false;
-  }
-}
+    setIsSubmitting(true);
+    setMessage('Sending your enrollment application...');
+    setMessageType('loading');
 
-// Show connection status
-async function showConnectionStatus() {
-  const statusElement = document.getElementById('connection-status');
-  if (!statusElement) return;
-
-  const isHealthy = await checkServerHealth();
-  if (isHealthy) {
-    statusElement.innerHTML = '<span style="color: green;">✅ Connected to server</span>';
-    statusElement.style.display = 'block';
-  } else {
-    statusElement.innerHTML = '<span style="color: red;">❌ Failed to connect to server</span>';
-    statusElement.style.display = 'block';
-  }
-}
-
-// Call this when page loads
-document.addEventListener('DOMContentLoaded', () => {
-  showConnectionStatus();
-  
-  // Add connection status element if it doesn't exist
-  if (!document.getElementById('connection-status')) {
-    const statusDiv = document.createElement('div');
-    statusDiv.id = 'connection-status';
-    statusDiv.style.textAlign = 'center';
-    statusDiv.style.padding = '10px';
-    statusDiv.style.margin = '10px 0';
-    document.body.insertBefore(statusDiv, document.body.firstChild);
-  }
-});
-
-// Example form submission (adjust based on your actual form)
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('enrollmentForm');
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    try {
+      // 🔧 SOLUTION: Use dynamic server URL
+      const serverUrl = getServerUrl();
+      console.log('Connecting to server:', serverUrl); // Debug log
       
-      // Get form data - adjust field names based on your actual form
-      const formData = {
-        firstName: document.getElementById('firstName')?.value || '',
-        lastName: document.getElementById('lastName')?.value || '',
-        email: document.getElementById('email')?.value || '',
-        phone: document.getElementById('phone')?.value || '',
-        idnumber: document.getElementById('idnumber')?.value || '',
-        dateOfBirth: document.getElementById('dateOfBirth')?.value || '',
-        course: document.getElementById('course')?.value || '',
-        address: document.getElementById('address')?.value || '',
-        city: document.getElementById('city')?.value || '',
-        zipCode: document.getElementById('zipCode')?.value || '',
-        emergencyContact: document.getElementById('emergencyContact')?.value || '',
-        emergencyPhone: document.getElementById('emergencyPhone')?.value || ''
-      };
+      const response = await fetch(`${serverUrl}/api/enrollment`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
 
-      // Show loading state
-      const submitButton = form.querySelector('button[type="submit"]');
-      const originalText = submitButton.textContent;
-      submitButton.textContent = 'Submitting...';
-      submitButton.disabled = true;
+      const data = await response.json();
 
-      // Submit enrollment
-      const result = await submitEnrollment(formData);
-      
-      // Reset button
-      submitButton.textContent = originalText;
-      submitButton.disabled = false;
-
-      // Show result
-      if (result.success) {
-        alert('✅ Enrollment submitted successfully! Check your email for confirmation.');
-        form.reset();
+      if (data.success) {
+        setMessage('Enrollment application submitted successfully! Check your email for confirmation.');
+        setMessageType('success');
+        
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          idnumber: '', 
+          dateOfBirth: '',
+          course: '',
+          address: '',
+          city: '',
+          zipCode: '',
+          emergencyContact: '',
+          emergencyPhone: ''
+        });
       } else {
-        alert(`❌ ${result.message || 'Submission failed. Please try again.'}`);
+        setMessage(data.message || 'Failed to submit enrollment');
+        setMessageType('error');
       }
-    });
-  }
-});
+    } catch (error) {
+      console.error('Error:', error);
+      setMessage(`Failed to connect to server at ${getServerUrl()}. Please ensure the server is running and try again.`);
+      setMessageType('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 p-5">
+      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
+        
+        {/* Header */}
+        <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-10 text-center">
+          <div className="bg-white bg-opacity-20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-5">
+            <GraduationCap size={40} />
+          </div>
+          <h1 className="text-4xl font-bold mb-2">Student Enrollment</h1>
+          <p className="text-xl opacity-90">Join our academic community today</p>
+        </div>
+
+        {/* Debug info - remove in production */}
+        <div className="bg-gray-100 p-4 text-sm text-gray-600 text-center">
+          Server URL: {getServerUrl()}
+        </div>
+
+        <div onSubmit={handleSubmit}>
+          <div className="p-10">
+            {/* Status Message */}
+            {message && (
+              <div className={`p-4 rounded-lg mb-6 flex items-center gap-3 ${
+                messageType === 'success' ? 'bg-green-50 text-green-700 border border-green-200' :
+                messageType === 'error' ? 'bg-red-50 text-red-700 border border-red-200' :
+                'bg-blue-50 text-blue-700 border border-blue-200'
+              }`}>
+                {messageType === 'success' && <CheckCircle size={20} />}
+                {messageType === 'error' && <AlertCircle size={20} />}
+                {messageType === 'loading' && (
+                  <div className="w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                )}
+                <span>{message}</span>
+              </div>
+            )}
+
+            <div className="space-y-8">
+              {/* Personal Information */}
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-700 mb-5 flex items-center gap-3">
+                  <User size={24} />
+                  Personal Information
+                </h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      First Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      className="w-full p-3 border-2 border-gray-300 rounded-lg outline-none focus:border-blue-500"
+                      placeholder="Enter your first name"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Last Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      className="w-full p-3 border-2 border-gray-300 rounded-lg outline-none focus:border-blue-500"
+                      placeholder="Enter your last name"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full p-3 border-2 border-gray-300 rounded-lg outline-none focus:border-blue-500"
+                      placeholder="your.email@example.com"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full p-3 border-2 border-gray-300 rounded-lg outline-none focus:border-blue-500"
+                      placeholder="0748 090 462"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      ID Number *
+                    </label>
+                    <input
+                      type="text"
+                      name="idnumber" 
+                      value={formData.idnumber} 
+                      onChange={handleChange}
+                      className="w-full p-3 border-2 border-gray-300 rounded-lg outline-none focus:border-blue-500"
+                      placeholder="34576322"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Date of Birth *
+                    </label>
+                    <input
+                      type="date"
+                      name="dateOfBirth"
+                      value={formData.dateOfBirth}
+                      onChange={handleChange}
+                      className="w-full p-3 border-2 border-gray-300 rounded-lg outline-none focus:border-blue-500"
+                      required
+                    />
+                  </div>
+
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Course Selection *
+                    </label>
+                    <select
+                      name="course"
+                      value={formData.course}
+                      onChange={handleChange}
+                      className="w-full p-3 border-2 border-gray-300 rounded-lg outline-none focus:border-blue-500 bg-white"
+                      required
+                    >
+                      <option value="">Select a course</option>
+                      {courses.map((course) => (
+                        <option key={course} value={course}>
+                          {course}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              {/* Address Information */}
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-700 mb-5 flex items-center gap-3">
+                  <MapPin size={24} />
+                  Address Information
+                </h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Street Address *
+                    </label>
+                    <input
+                      type="text"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleChange}
+                      className="w-full p-3 border-2 border-gray-300 rounded-lg outline-none focus:border-blue-500"
+                      placeholder="123 Main Street"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      City *
+                    </label>
+                    <input
+                      type="text"
+                      name="city"
+                      value={formData.city}
+                      onChange={handleChange}
+                      className="w-full p-3 border-2 border-gray-300 rounded-lg outline-none focus:border-blue-500"
+                      placeholder="Your city"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      ZIP Code *
+                    </label>
+                    <input
+                      type="text"
+                      name="zipCode"
+                      value={formData.zipCode}
+                      onChange={handleChange}
+                      className="w-full p-3 border-2 border-gray-300 rounded-lg outline-none focus:border-blue-500"
+                      placeholder="12345"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Emergency Contact */}
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-700 mb-5">
+                  Emergency Contact (Optional)
+                </h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Contact Name
+                    </label>
+                    <input
+                      type="text"
+                      name="emergencyContact"
+                      value={formData.emergencyContact}
+                      onChange={handleChange}
+                      className="w-full p-3 border-2 border-gray-300 rounded-lg outline-none focus:border-blue-500"
+                      placeholder="Emergency contact name"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Contact Phone
+                    </label>
+                    <input
+                      type="tel"
+                      name="emergencyPhone"
+                      value={formData.emergencyPhone}
+                      onChange={handleChange}
+                      className="w-full p-3 border-2 border-gray-300 rounded-lg outline-none focus:border-blue-500"
+                      placeholder="0748 090 462"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <div className="text-center">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`inline-flex items-center gap-3 px-8 py-4 text-lg font-semibold text-white rounded-lg transition-all ${
+                    isSubmitting 
+                      ? 'bg-gray-400 cursor-not-allowed' 
+                      : 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 hover:shadow-lg'
+                  }`}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      Submitting...
+                    </>
+                  ) : (
+                    <>
+                      <Mail size={20} />
+                      Submit Enrollment
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+
+            <div className="text-center mt-8 text-sm text-gray-600">
+              <p>* Required fields</p>
+              <p>You will receive a confirmation email after submission.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
