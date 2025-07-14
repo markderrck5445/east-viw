@@ -1,15 +1,37 @@
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
+const os = require('os');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const HOST = '0.0.0.0';
 
-// Middleware
-app.use(cors());
+// Function to get local IP address
+function getLocalIP() {
+  const interfaces = os.networkInterfaces();
+  for (const name of Object.keys(interfaces)) {
+    for (const interface of interfaces[name]) {
+      if (interface.family === 'IPv4' && !interface.internal) {
+        return interface.address;
+      }
+    }
+  }
+  return 'localhost';
+}
+
+// Middleware - Allow ALL origins (for local network access)
+app.use(cors({
+  origin: '*', // Allow all origins
+  credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 app.use(express.json());
+
+// Serve static files (your frontend)
+app.use(express.static('.'));
 
 // Create email transporter
 const transporter = nodemailer.createTransport({
@@ -37,6 +59,7 @@ app.post('/api/enrollment', async (req, res) => {
       lastName,
       email,
       phone,
+      idnumber,
       dateOfBirth,
       course,
       address,
@@ -47,14 +70,14 @@ app.post('/api/enrollment', async (req, res) => {
     } = req.body;
 
     // Validate required fields
-    if (!firstName || !lastName || !email || !phone || !dateOfBirth || !course || !address || !city || !zipCode) {
+    if (!firstName || !lastName || !email || !phone || !idnumber || !dateOfBirth || !course || !address || !city || !zipCode) {
       return res.status(400).json({
         success: false,
         message: 'Please fill in all required fields'
       });
     }
 
-    // Email content for you (the admin)
+    // Email content for admin
     const adminEmailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 30px; text-align: center;">
@@ -67,6 +90,7 @@ app.post('/api/enrollment', async (req, res) => {
           <p><strong>Name:</strong> ${firstName} ${lastName}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>ID Number:</strong> ${idnumber}</p>
           <p><strong>Date of Birth:</strong> ${dateOfBirth}</p>
           <p><strong>Course:</strong> ${course}</p>
           
@@ -88,12 +112,12 @@ app.post('/api/enrollment', async (req, res) => {
       </div>
     `;
 
-    // Email content for the student
+    // Email content for student
     const studentEmailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 30px; text-align: center;">
           <h1>🎓 Enrollment Confirmation</h1>
-          <p>Thank you for your enrollment application To EastView Training Institute!</p>
+          <p>Thank you for your enrollment application to EastView Training Institute!</p>
         </div>
         
         <div style="padding: 30px; background: #f8f9fa;">
@@ -112,7 +136,7 @@ app.post('/api/enrollment', async (req, res) => {
           
           <p>We appreciate your interest in joining our academic community!</p>
           
-          <p>Best regards,<br>The Admissions Team</p>
+          <p>Best regards,<br>The Admissions Team<br>EastView Training Institute</p>
           
           <p style="margin-top: 30px; color: #666; font-size: 14px;">
             <em>Application submitted on ${new Date().toLocaleString()}</em>
@@ -134,13 +158,13 @@ app.post('/api/enrollment', async (req, res) => {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: email,
-      subject: 'Enrollment Application Received',
+      subject: 'Enrollment Application Received - EastView Training Institute',
       html: studentEmailHtml
     });
 
     res.json({
       success: true,
-      message: 'Enrollment application submitted successfully!'
+      message: 'Enrollment application submitted successfully! Check your email for confirmation.'
     });
 
   } catch (error) {
@@ -150,10 +174,15 @@ app.post('/api/enrollment', async (req, res) => {
       message: 'Failed to process enrollment. Please try again.'
     });
   }
-}); 
-// Start the server
+});
+
+// Start server
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on http://0.0.0.0:${PORT}`);
-  console.log(`Also accessible via your IP address`);
-  console.log(`Email configured for: ${process.env.EMAIL_USER}`);
+  const localIP = getLocalIP();
+  console.log('\n🚀 Server is running on:');
+  console.log(`   Local:    http://localhost:${PORT}`);
+  console.log(`   Network:  http://${localIP}:${PORT}`);
+  console.log(`\n📱 For mobile/other devices, use: http://${localIP}:${PORT}`);
+  console.log(`📧 Email configured for: ${process.env.EMAIL_USER}`);
+  console.log('\n✅ Other devices on your network can now access the enrollment form!');
 });
