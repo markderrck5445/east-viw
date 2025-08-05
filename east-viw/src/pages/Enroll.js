@@ -137,7 +137,7 @@ export default function EnrollmentForm() {
 
     try {
       // ✅ Updated: Use your actual server IP if needed
-      const response = await fetch('http://localhost:3001/api/enrollment', {
+      const response = await fetch("https://enrollment-backend.onrender.com/api/route", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
