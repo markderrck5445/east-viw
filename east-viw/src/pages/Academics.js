@@ -1,5 +1,28 @@
 import React, { useState } from 'react';
-import { Store, Share2, Youtube, Facebook, Instagram, Send } from 'lucide-react';
+import { 
+  GraduationCap, 
+  BookOpen, 
+  TrendingUp, 
+  Database, 
+  Building, 
+  Calculator,
+  Briefcase,
+  FileText,
+  MapPin,
+  Mail,
+  Phone,
+  CheckCircle,
+  Users,
+  Award,
+  Clock,
+  Store,
+  Share2,
+  Youtube,
+  Facebook,
+  Instagram,
+  Send
+} from 'lucide-react';
+
 import footer from '../components/Footer';
 
  
@@ -425,128 +448,95 @@ const Academic = () => {
         )}
       </div>
 
-       <footer className="bg-gray-900 text-white py-8 px-4">
-      <div className="max-w-6xl mx-auto">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Links Column */}
-          <div className="footer-column">
-            <h3 className="flex items-center gap-2 text-lg font-semibold mb-4">
-              <Store className="w-5 h-5" />
-              Links
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <a 
-                  href="#" 
-                  className="text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  Home
+        <footer className="bg-gray-900 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {/* Links Column */}
+            <div className="scroll-animate">
+              <h3 className="flex items-center gap-2 text-lg font-semibold mb-6">
+                <Store className="w-5 h-5 text-blue-400" />
+                Quick Links
+              </h3>
+              <ul className="space-y-3">
+                {['Home', 'About Us', 'Courses', 'Admissions', 'Contact'].map((link) => (
+                  <li key={link}>
+                    <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 hover:translate-x-1 transform">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Socials Column */}
+            <div className="scroll-animate">
+              <h3 className="flex items-center gap-2 text-lg font-semibold mb-6">
+                <Share2 className="w-5 h-5 text-green-400" />
+                Follow Us
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#" className="flex items-center gap-3 text-gray-300 hover:text-red-400 transition-colors duration-200 group">
+                    <Youtube className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    YouTube
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="flex items-center gap-3 text-gray-300 hover:text-blue-500 transition-colors duration-200 group">
+                    <Facebook className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    Facebook
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="flex items-center gap-3 text-gray-300 hover:text-pink-500 transition-colors duration-200 group">
+                    <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    Instagram
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact Column */}
+            <div className="scroll-animate">
+              <h3 className="flex items-center gap-2 text-lg font-semibold mb-6">
+                <Send className="w-5 h-5 text-yellow-400" />
+                Contact Info
+              </h3>
+              <div className="space-y-3">
+                <a href="mailto:info@eastviewinstitute.ac.ke" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-200">
+                  <Mail className="w-4 h-4" />
+                  info@eastviewinstitute.ac.ke
                 </a>
-              </li>
-              <li>
-                <a 
-                  href="#" 
-                  className="text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  About
+                <a href="tel:+254700000000" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-200">
+                  <Phone className="w-4 h-4" />
+                  +254 700 000 000
                 </a>
-              </li>
-              <li>
-                <a 
-                  href="#" 
-                  className="text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#" 
-                  className="text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
+              </div>
+            </div>
+
+            {/* Logo Column */}
+            <div className="flex flex-col items-center lg:items-end scroll-animate">
+              <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl p-6 mb-4">
+                <GraduationCap className="w-12 h-12 text-white" />
+              </div>
+              <h4 className="text-lg font-bold text-center lg:text-right">East View Training Institute</h4>
+              <p className="text-gray-400 text-sm text-center lg:text-right mt-2">Excellence in Education</p>
+            </div>
           </div>
 
-          {/* Socials Column */}
-          <div className="footer-column">
-            <h3 className="flex items-center gap-2 text-lg font-semibold mb-4">
-              <Share2 className="w-5 h-5" />
-              Socials
-            </h3>
-            <ul className="space-y-3">
-              <li>
-                <a 
-                  href="#" 
-                  className="flex items-center gap-2 text-gray-300 hover:text-red-400 transition-colors duration-200"
-                >
-                  <Youtube className="w-5 h-5" />
-                  Youtube
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#" 
-                  className="flex items-center gap-2 text-gray-300 hover:text-blue-500 transition-colors duration-200"
-                >
-                  <Facebook className="w-5 h-5" />
-                  Facebook
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#" 
-                  className="flex items-center gap-2 text-gray-300 hover:text-pink-500 transition-colors duration-200"
-                >
-                  <Instagram className="w-5 h-5" />
-                  Instagram
-                </a>
-              </li>
-            </ul>
-          </div>
+          <hr className="border-gray-700 mb-8" />
 
-          {/* Contact Column */}
-          <div className="footer-column">
-            <h3 className="flex items-center gap-2 text-lg font-semibold mb-4">
-              <Send className="w-5 h-5" />
-              CONTACT
-            </h3>
-            <p className="text-gray-300">
-              <a 
-                href="mailto:example@gmail.com"
-                className="hover:text-white transition-colors duration-200"
-              >
-                example@gmail.com
-              </a>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 scroll-animate">
+            <p className="text-gray-400 text-sm">
+              &copy; 2025 East View Training Institute. All rights reserved.
             </p>
-          </div>
-
-          {/* Logo Column */}
-          <div className="footer-column flex justify-center lg:justify-end">
-            <div className="foot-logo">
-              <img 
-                src="./img/pic4.jpg.png" 
-                alt="Company Logo" 
-                className="w-24 h-24 md:w-32 md:h-32 object-contain rounded-lg shadow-lg"
-              />
+            <div className="flex gap-6 text-sm text-gray-400">
+              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>
-
-        {/* Divider */}
-        <hr className="border-gray-700 mb-4" />
-
-        {/* Copyright */}
-        <div className="text-center">
-          <p className="text-gray-400 text-sm">
-            &copy; 2025. All rights reserved
-          </p>
-        </div>
-      </div>
-    </footer>
+      </footer>
     </div>
   );
 };

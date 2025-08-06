@@ -550,91 +550,95 @@ function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
-            <div className="animate-on-scroll slide-left">
-              <h3 className="flex items-center gap-2 text-base sm:text-lg font-semibold mb-4 sm:mb-6">
-                <Store className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400" />
-                Quick Links
-              </h3>
-              <ul className="space-y-2 sm:space-y-3">
-                {['Home', 'About Us', 'Courses', 'Admissions', 'Contact'].map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-gray-300 hover:text-orange-400 transition-all duration-200 hover:translate-x-2 transform inline-block text-sm sm:text-base">
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="animate-on-scroll slide-right">
-              <h3 className="flex items-center gap-2 text-base sm:text-lg font-semibold mb-4 sm:mb-6">
-                <Share2 className="w-4 h-4 sm:w-5 sm:h-5 text-teal-400" />
-                Follow Our Journey
-              </h3>
-              <ul className="space-y-2 sm:space-y-3">
-                <li>
-                  <a href="#" className="flex items-center gap-3 text-gray-300 hover:text-red-500 transition-all duration-200 group text-sm sm:text-base">
-                    <Youtube className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
-                    YouTube Channel
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="flex items-center gap-3 text-gray-300 hover:text-blue-400 transition-all duration-200 group text-sm sm:text-base">
-                    <Facebook className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
-                    Facebook Page
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="flex items-center gap-3 text-gray-300 hover:text-pink-500 transition-all duration-200 group text-sm sm:text-base">
-                    <Instagram className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
-                    Instagram
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="animate-on-scroll slide-left">
-              <h3 className="flex items-center gap-2 text-base sm:text-lg font-semibold mb-4 sm:mb-6">
-                <Send className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
-                Get in Touch
-              </h3>
-              <div className="space-y-2 sm:space-y-3">
-                <a href="mailto:info@eastviewinstitute.ac.ke" className="flex items-center gap-3 text-gray-300 hover:text-amber-400 transition-colors duration-200 text-sm sm:text-base break-all sm:break-normal">
-                  <Mail className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-                  info@eastviewinstitute.ac.ke
-                </a>
-                <a href="tel:+254700000000" className="flex items-center gap-3 text-gray-300 hover:text-amber-400 transition-colors duration-200 text-sm sm:text-base">
-                  <Phone className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-                  +254 700 000 000
-                </a>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center lg:items-end animate-on-scroll slide-right">
-              <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-lg p-4 sm:p-6 mb-3 sm:mb-4 hover-lift transform -rotate-1 sm:-rotate-2">
-                <GraduationCap className="w-8 h-8 sm:w-12 sm:h-12 text-white" />
-              </div>
-              <h4 className="text-base sm:text-lg font-bold text-center lg:text-right">East View Training Institute</h4>
-              <p className="text-gray-400 text-xs sm:text-sm text-center lg:text-right mt-1 sm:mt-2">Where Careers Begin</p>
-            </div>
-          </div>
-
-          <hr className="border-gray-600 mb-6 sm:mb-8" />
-
-          <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 animate-on-scroll slide-up">
-            <p className="text-gray-400 text-xs sm:text-sm text-center md:text-left">
-              &copy; 2025 East View Training Institute. Making dreams come true, one student at a time.
-            </p>
-            <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm text-gray-400">
-              <a href="#" className="hover:text-orange-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-orange-400 transition-colors">Terms of Service</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <footer className="bg-gray-900 text-white py-16">
+             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                 {/* Links Column */}
+                 <div className="scroll-animate">
+                   <h3 className="flex items-center gap-2 text-lg font-semibold mb-6">
+                     <Store className="w-5 h-5 text-blue-400" />
+                     Quick Links
+                   </h3>
+                   <ul className="space-y-3">
+                     {['Home', 'About Us', 'Courses', 'Admissions', 'Contact'].map((link) => (
+                       <li key={link}>
+                         <a href={link === 'Courses' ? '/' : `/${link.replace(/\s+/g, '').toLowerCase()}`} className="text-gray-300 hover:text-white transition-colors duration-200 hover:translate-x-1 transform">
+                           {link}
+                         </a>
+                       </li>
+                     ))}
+                   </ul>
+                 </div>
+     
+                 {/* Socials Column */}
+                 <div className="scroll-animate">
+                   <h3 className="flex items-center gap-2 text-lg font-semibold mb-6">
+                     <Share2 className="w-5 h-5 text-green-400" />
+                     Follow Us
+                   </h3>
+                   <ul className="space-y-3">
+                     <li>
+                       <a href="#" className="flex items-center gap-3 text-gray-300 hover:text-red-400 transition-colors duration-200 group">
+                         <Youtube className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                         YouTube
+                       </a>
+                     </li>
+                     <li>
+                       <a href="#" className="flex items-center gap-3 text-gray-300 hover:text-blue-500 transition-colors duration-200 group">
+                         <Facebook className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                         Facebook
+                       </a>
+                     </li>
+                     <li>
+                       <a href="#" className="flex items-center gap-3 text-gray-300 hover:text-pink-500 transition-colors duration-200 group">
+                         <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                         Instagram
+                       </a>
+                     </li>
+                   </ul>
+                 </div>
+     
+                 {/* Contact Column */}
+                 <div className="scroll-animate">
+                   <h3 className="flex items-center gap-2 text-lg font-semibold mb-6">
+                     <Send className="w-5 h-5 text-yellow-400" />
+                     Contact Info
+                   </h3>
+                   <div className="space-y-3">
+                     <a href="mailto:info@eastviewinstitute.ac.ke" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-200">
+                       <Mail className="w-4 h-4" />
+                       info@eastviewinstitute.ac.ke
+                     </a>
+                     <a href="tel:+254700000000" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-200">
+                       <Phone className="w-4 h-4" />
+                       +254 700 000 000
+                     </a>
+                   </div>
+                 </div>
+     
+                 {/* Logo Column */}
+                 <div className="flex flex-col items-center lg:items-end scroll-animate">
+                   <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl p-6 mb-4">
+                     <GraduationCap className="w-12 h-12 text-white" />
+                   </div>
+                   <h4 className="text-lg font-bold text-center lg:text-right">East View Training Institute</h4>
+                   <p className="text-gray-400 text-sm text-center lg:text-right mt-2">Excellence in Education</p>
+                 </div>
+               </div>
+     
+               <hr className="border-gray-700 mb-8" />
+     
+               <div className="flex flex-col md:flex-row justify-between items-center gap-4 scroll-animate">
+                 <p className="text-gray-400 text-sm">
+                   &copy; 2025 East View Training Institute. All rights reserved.
+                 </p>
+                 <div className="flex gap-6 text-sm text-gray-400">
+                   <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+                   <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+                 </div>
+               </div>
+             </div>
+           </footer>
     </div>
   );
 }
