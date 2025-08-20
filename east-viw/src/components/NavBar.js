@@ -131,24 +131,38 @@ function Navbar() {
               </ul>
             )}
 
-            {/* Right side - contact info on desktop, hamburger on mobile */}
+            {/* Right side - login icon and hamburger */}
             <div className="navbar-right">
-              {!isMobile ? (
+              {!isMobile && (
                 <div className="navbar-contact">
+                  <Link to="/login" className="login-icon" aria-label="Login">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </Link>
                 </div>
-              ) : (
-                <div className="hamburger-menu">
-                  <button onClick={toggleMenu} aria-label="Toggle menu">
-                    {isMenuOpen ? (
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    ) : (
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"> 
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                      </svg>
-                    )}
-                  </button>
+              )}
+              
+              {isMobile && (
+                <div className="mobile-right-section">
+                  <Link to="/login" className="login-icon mobile-login" aria-label="Login">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </Link>
+                  <div className="hamburger-menu">
+                    <button onClick={toggleMenu} aria-label="Toggle menu">
+                      {isMenuOpen ? (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      ) : (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"> 
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                      )}
+                    </button>
+                  </div>
                 </div>
               )}
             </div>
@@ -296,12 +310,12 @@ function Navbar() {
           top: 0;
           z-index: 1000;
           background: #fff;
-          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          border-bottom: 3px solid #007bff;
         }
 
         .single-navbar {
           background: #fff;
-          border-bottom: 1px solid #eee;
         }
 
         .container {
@@ -314,7 +328,7 @@ function Navbar() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          height: 60px;
+          height: 70px;
         }
 
         .navbar-brand {
@@ -327,24 +341,74 @@ function Navbar() {
           list-style: none;
           margin: 0;
           padding: 0;
-          gap: 2rem;
+          gap: 3rem;
+          flex: 1;
+          justify-content: center;
         }
 
         .main-nav-links a {
           text-decoration: none;
           color: #333;
-          font-weight: 500;
-          transition: color 0.2s;
+          font-weight: 600;
+          font-size: 15px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          transition: all 0.3s ease;
+          position: relative;
+          padding: 8px 0;
         }
 
-        .main-nav-links a:hover,
+        .main-nav-links a:hover {
+          color: #007bff;
+        }
+
         .main-nav-links a.active {
           color: #007bff;
+        }
+
+        .main-nav-links a:hover::after,
+        .main-nav-links a.active::after {
+          content: '';
+          position: absolute;
+          bottom: -8px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: #007bff;
         }
 
         .navbar-right {
           display: flex;
           align-items: center;
+        }
+
+        .mobile-right-section {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .login-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #333;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          padding: 8px;
+          border-radius: 50%;
+          background: transparent;
+          border: 2px solid transparent;
+        }
+
+        .login-icon:hover {
+          color: #007bff;
+          background: #f8f9fa;
+          border-color: #007bff;
+        }
+
+        .mobile-login {
+          margin-right: 0.5rem;
         }
 
         .hamburger-menu button {
@@ -354,10 +418,12 @@ function Navbar() {
           padding: 0.5rem;
           border-radius: 4px;
           transition: background-color 0.2s;
+          color: #333;
         }
 
         .hamburger-menu button:hover {
           background-color: #f5f5f5;
+          color: #007bff;
         }
 
         /* Mobile Menu Styles */
@@ -382,6 +448,7 @@ function Navbar() {
           transform: translateX(0);
           transition: transform 0.3s ease;
           overflow-y: auto;
+          box-shadow: -4px 0 15px rgba(0,0,0,0.1);
         }
 
         .mobile-menu-content {
@@ -396,6 +463,9 @@ function Navbar() {
           margin: 0 0 1rem 0;
           color: #333;
           font-size: 1.1rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
         }
 
         .mobile-section ul {
@@ -412,20 +482,24 @@ function Navbar() {
           text-decoration: none;
           color: #333;
           font-weight: 500;
-          padding: 0.5rem 0;
+          padding: 0.75rem 0;
           display: block;
-          transition: color 0.2s;
+          transition: all 0.3s ease;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          border-bottom: 1px solid #f5f5f5;
         }
 
         .mobile-section a:hover,
         .mobile-section a.active {
           color: #007bff;
+          padding-left: 1rem;
         }
 
         .mobile-contact {
           display: flex;
           flex-direction: column;
-          gap: 0.5rem;
+          gap: 0.75rem;
         }
 
         .contact-item {
@@ -434,6 +508,9 @@ function Navbar() {
           gap: 0.5rem;
           color: #666;
           font-size: 0.9rem;
+          padding: 0.5rem;
+          background: #f8f9fa;
+          border-radius: 6px;
         }
 
         /* Prevent body scroll when mobile menu is open */
@@ -445,6 +522,10 @@ function Navbar() {
         @media (max-width: 768px) {
           .main-nav-links {
             display: none;
+          }
+          
+          .navbar-content {
+            height: 60px;
           }
         }
 
