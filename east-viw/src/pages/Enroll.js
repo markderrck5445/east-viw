@@ -354,7 +354,7 @@ export default function EnhancedEnrollmentForm() {
         {/* Page Title */}
         <div className="text-center mb-8">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Complete Your Enrollment</h2>
-          <p className="text-xl text-gray-600">Join thousands of learners advancing their careers</p>
+          <p className="text-xl text-gray-600">Join thousands of learners advancing their careers at EastView Training Institute</p>
         </div>
 
         {/* Progress Indicator */}
