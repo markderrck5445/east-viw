@@ -561,11 +561,11 @@ const EastViewHomepage = () => {
               <div className="space-y-3">
                 <a href="mailto:info@eastviewinstitute.ac.ke" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-200">
                   <Mail className="w-4 h-4" />
-                  info@eastviewinstitute.ac.ke
+                  eastviewcollege@gmail.com
                 </a>
                 <a href="tel:+254700000000" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-200">
                   <Phone className="w-4 h-4" />
-                  +254 700 000 000
+                  +254 705 446 230/+254 700124 456
                 </a>
               </div>
             </motion.div>
@@ -575,7 +575,7 @@ const EastViewHomepage = () => {
                 <GraduationCap className="w-12 h-12 text-white" />
               </div>
               <h4 className="text-lg font-bold text-center lg:text-right">East View Training Institute</h4>
-              <p className="text-gray-400 text-sm text-center lg:text-right mt-2">Excellence in Education</p>
+              <p className="text-gray-400 text-sm text-center lg:text-right mt-2">Center of Excellence</p>
             </motion.div>
           </motion.div>
 

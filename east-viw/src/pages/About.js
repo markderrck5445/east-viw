@@ -71,10 +71,7 @@ function About() {
             <div className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
               <h2 className="text-2xl lg:text-3xl font-bold text-blue-800 mb-4">Our Mission</h2>
               <p className="text-gray-700 leading-relaxed">
-                At East View, we are committed to providing exceptional educational experiences 
-                that foster intellectual growth, critical thinking, and personal development. 
-                Our mission is to empower students to become innovative leaders and responsible 
-                global citizens.
+               To foster academic excellence, professional development and ethicsl leadership through a leaner-centrd 
               </p>
             </div>
             
