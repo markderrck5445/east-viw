@@ -160,13 +160,16 @@ const EastViewHomepage = () => {
                   className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => window.location.href = '/enroll'}
                 >
                   Enroll Now
                 </motion.button>
+
                 <motion.button
                   className="border-2 border-gray-300 hover:border-teal-600 text-gray-700 hover:text-teal-600 px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => window.location.href = '/academics'}
                 >
                   View Courses
                 </motion.button>
