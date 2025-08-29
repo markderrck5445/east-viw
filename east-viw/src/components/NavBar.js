@@ -84,7 +84,7 @@ function Navbar() {
   const LogoComponent = ({ className = "" }) => (
     <div className={`logo-container ${className}`}>
       <img 
-        src="/api/placeholder/120/40" 
+        src="img/pic8.jpg" 
         alt="ETI Institute Logo" 
         className="logo-image"
         onError={(e) => {
@@ -93,7 +93,7 @@ function Navbar() {
           e.target.nextSibling.style.display = 'inline-block';
         }}
       />
-      <span className="logo-text-fallback" style={{ display: 'none' }}>ETI</span>
+      <span className="logo-text-fallback" style={{ display: 'none' }}>ETI COLL</span>
     </div>
   );
 

@@ -41,7 +41,18 @@ export default function EnhancedEnrollmentForm() {
     'Mathematics',
     'Literature',
     'Information Technology',
-    'Project Management'
+    'Project Management',
+    'Diploma in Computer Science',
+    'iploma in Administration', 
+    'Diploma in Engineering',
+    'Diploma in Medicine',
+    'Diploma in Arts & Design',
+    'Diploma in Psychology',
+    'Diploma in Mathematics',
+    'Diploma in Literature',
+    'Diploma in Information Technology',
+    'Diploma in Project Management',
+    
   ];
 
   const steps = [

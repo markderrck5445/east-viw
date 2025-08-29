@@ -28,9 +28,9 @@ import {
 
 function About() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-purple-50">
       {/* Header Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 px-4">
+      <div className="bg-gradient-to-r from-purple-600 to-purple-800 text-white py-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">About East View</h1>
         </div>
@@ -68,16 +68,16 @@ function About() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {/* Our Mission */}
-            <div className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-              <h2 className="text-2xl lg:text-3xl font-bold text-blue-800 mb-4">Our Mission</h2>
+            <div className="bg-purple-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+              <h2 className="text-2xl lg:text-3xl font-bold text-purple-800 mb-4">Our Mission</h2>
               <p className="text-gray-700 leading-relaxed">
-               To foster academic excellence, professional development and ethicsl leadership through a leaner-centrd 
+               To foster academic excellence, professional development and ethical leadership through a learner-centered 
               </p>
             </div>
             
             {/* Our Values */}
-            <div className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-              <h2 className="text-2xl lg:text-3xl font-bold text-blue-800 mb-4">Our Values</h2>
+            <div className="bg-purple-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+              <h2 className="text-2xl lg:text-3xl font-bold text-purple-800 mb-4">Our Values</h2>
               <p className="text-gray-700 leading-relaxed">
                 We believe in excellence, integrity, diversity, and community. These core values 
                 guide everything we do, from our academic programs to our campus culture. We 
@@ -87,8 +87,8 @@ function About() {
             </div>
             
             {/* Academic Excellence */}
-            <div className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-              <h2 className="text-2xl lg:text-3xl font-bold text-blue-800 mb-4">Academic Excellence</h2>
+            <div className="bg-purple-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+              <h2 className="text-2xl lg:text-3xl font-bold text-purple-800 mb-4">Academic Excellence</h2>
               <p className="text-gray-700 leading-relaxed">
                 Our rigorous academic programs are designed to challenge and inspire students 
                 across all disciplines. With state-of-the-art facilities, renowned faculty, 
@@ -98,8 +98,8 @@ function About() {
             </div>
             
             {/* Campus Life */}
-            <div className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-              <h2 className="text-2xl lg:text-3xl font-bold text-blue-800 mb-4">Campus Life</h2>
+            <div className="bg-purple-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+              <h2 className="text-2xl lg:text-3xl font-bold text-purple-800 mb-4">Campus Life</h2>
               <p className="text-gray-700 leading-relaxed">
                 Beyond academics, East View offers a vibrant campus community with numerous 
                 opportunities for personal growth, leadership development, and social engagement. 
@@ -112,7 +112,7 @@ function About() {
       </div>
 
       {/* About Description Section */}
-      <div className="py-16 px-4 bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="py-16 px-4 bg-gradient-to-br from-purple-50 to-yellow-100">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
             <div className="flex flex-col lg:flex-row-reverse">
@@ -143,7 +143,7 @@ function About() {
       {/* Diverse Course Offering Section */}
       <div className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl shadow-xl overflow-hidden text-white">
+          <div className="bg-gradient-to-r from-purple-600 to-yellow-500 rounded-2xl shadow-xl overflow-hidden text-white">
             <div className="flex flex-col lg:flex-row">
               <div className="lg:w-1/2">
                 <img 
@@ -156,7 +156,7 @@ function About() {
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6">
                   Diverse Course Offering
                 </h2>
-                <p className="text-blue-100 text-lg leading-relaxed">
+                <p className="text-purple-100 text-lg leading-relaxed">
                   At East View, we offer a wide range of courses designed to cater to the diverse interests 
                   and career aspirations of our students. From STEM fields to the arts and humanities, 
                   our curriculum is designed to provide a comprehensive education that equips students with 
@@ -169,7 +169,7 @@ function About() {
       </div>
 
       {/* Foundation Section */}
-      <div className="py-16 px-4 bg-gray-50">
+      <div className="py-16 px-4 bg-purple-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
@@ -193,7 +193,7 @@ function About() {
                 />
               </div>
               <div className="lg:w-2/3">
-                <h3 className="text-2xl lg:text-3xl font-bold text-blue-800 mb-4">
+                <h3 className="text-2xl lg:text-3xl font-bold text-purple-800 mb-4">
                   Our Founders
                 </h3>
                 <p className="text-gray-700 text-lg leading-relaxed">
@@ -215,13 +215,13 @@ function About() {
             {/* Links Column */}
             <div className="scroll-animate">
               <h3 className="flex items-center gap-2 text-lg font-semibold mb-6">
-                <Store className="w-5 h-5 text-blue-400" />
+                <Store className="w-5 h-5 text-yellow-400" />
                 Quick Links
               </h3>
               <ul className="space-y-3">
                 {['Home', 'About Us', 'Courses', 'Admissions', 'Contact'].map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 hover:translate-x-1 transform">
+                    <a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors duration-200 hover:translate-x-1 transform">
                       {link}
                     </a>
                   </li>
@@ -232,7 +232,7 @@ function About() {
             {/* Socials Column */}
             <div className="scroll-animate">
               <h3 className="flex items-center gap-2 text-lg font-semibold mb-6">
-                <Share2 className="w-5 h-5 text-green-400" />
+                <Share2 className="w-5 h-5 text-purple-400" />
                 Follow Us
               </h3>
               <ul className="space-y-3">
@@ -264,21 +264,65 @@ function About() {
                 Contact Info
               </h3>
               <div className="space-y-3">
-                <a href="mailto:info@eastviewinstitute.ac.ke" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-200">
+                <a href="mailto:eastviewcollege@gmail.com" className="flex items-center gap-3 text-gray-300 hover:text-yellow-400 transition-colors duration-200">
                   <Mail className="w-4 h-4" />
-                  info@eastviewinstitute.ac.ke
+                  eastviewcollege@gmail.com
                 </a>
-                <a href="tel:+254700000000" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-200">
+                <a href="tel:+254705446230" className="flex items-center gap-3 text-gray-300 hover:text-yellow-400 transition-colors duration-200">
                   <Phone className="w-4 h-4" />
-                  +254 700 000 000
+                  +254 705 446 230
                 </a>
               </div>
             </div>
 
             {/* Logo Column */}
             <div className="flex flex-col items-center lg:items-end scroll-animate">
-              <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl p-6 mb-4">
-                <GraduationCap className="w-12 h-12 text-white" />
+              {/* ETI Logo SVG */}
+              <div className="mb-4">
+                <svg 
+                  width="80" 
+                  height="80" 
+                  viewBox="0 0 200 200" 
+                  className="eti-logo"
+                >
+                  {/* Outer purple circle */}
+                  <circle cx="100" cy="100" r="95" fill="#8B2E8B" stroke="#fff" strokeWidth="3"/>
+                  
+                  {/* Inner white circle */}
+                  <circle cx="100" cy="100" r="75" fill="#fff"/>
+                  
+                  {/* Book with graduation cap */}
+                  <g transform="translate(100, 85)">
+                    {/* Open book */}
+                    <path d="M-25,-10 Q-25,-15 -20,-15 L20,-15 Q25,-15 25,-10 L25,5 Q25,10 20,10 L-20,10 Q-25,10 -25,5 Z" fill="#333"/>
+                    <path d="M-25,-10 L0,-5 L25,-10" stroke="#fff" strokeWidth="2" fill="none"/>
+                    <path d="M0,-5 L0,10" stroke="#fff" strokeWidth="2"/>
+                    
+                    {/* Graduation cap */}
+                    <path d="M-15,-25 L15,-25 L15,-20 L-15,-20 Z" fill="#333"/>
+                    <circle cx="0" cy="-22.5" r="1.5" fill="#8B2E8B"/>
+                    <path d="M15,-22.5 L20,-18" stroke="#333" strokeWidth="1"/>
+                  </g>
+                  
+                  {/* Text around the circle */}
+                  <path id="top-arc" d="M 30 100 A 70 70 0 0 1 170 100" fill="none"/>
+                  <text fontSize="11" fill="#FFD700" fontWeight="bold">
+                    <textPath href="#top-arc" startOffset="50%" textAnchor="middle">
+                      EASTVIEW TRAINING INSTITUTE
+                    </textPath>
+                  </text>
+                  
+                  {/* Bottom banner */}
+                  <rect x="20" y="130" width="160" height="25" fill="#333"/>
+                  <text x="100" y="147" fontSize="10" fill="#FFD700" textAnchor="middle" fontWeight="bold">
+                    Centre of Professional Excellence
+                  </text>
+                  
+                  {/* ETI text */}
+                  <text x="100" y="170" fontSize="20" fill="#FFD700" textAnchor="middle" fontWeight="bold">
+                    ETI
+                  </text>
+                </svg>
               </div>
               <h4 className="text-lg font-bold text-center lg:text-right">East View Training Institute</h4>
               <p className="text-gray-400 text-sm text-center lg:text-right mt-2">Excellence in Education</p>
@@ -292,8 +336,8 @@ function About() {
               &copy; 2025 East View Training Institute. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-gray-400">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-yellow-400 transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-yellow-400 transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>
