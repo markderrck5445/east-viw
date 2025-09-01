@@ -58,7 +58,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a 
-                  href="#" 
+                  href="https://www.tiktok.com/@myeastview?_t=ZM-8zMJQVY74nG&_r=1" 
                   className="flex items-center gap-2 text-gray-300 hover:text-red-400 transition-colors duration-200"
                 >
                   <Youtube className="w-5 h-5" />
@@ -67,7 +67,7 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="#" 
+                  href="https://www.facebook.com/profile.php?id=61577378475137y" 
                   className="flex items-center gap-2 text-gray-300 hover:text-blue-500 transition-colors duration-200"
                 >
                   <Facebook className="w-5 h-5" />
@@ -76,7 +76,7 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="#" 
+                  href="https://www.instagram.com/no_visualizer?igsh=MTZyZDl5ZTJ4ZDZmdA==" 
                   className="flex items-center gap-2 text-gray-300 hover:text-pink-500 transition-colors duration-200"
                 >
                   <Instagram className="w-5 h-5" />

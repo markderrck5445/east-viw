@@ -539,19 +539,19 @@ const EastViewHomepage = () => {
               <h3 className="text-lg font-semibold mb-6">Follow Us</h3>
               <ul className="space-y-3">
                 <li>
-                  <a href="#" className="flex items-center gap-3 text-gray-300 hover:text-red-400 transition-colors duration-200">
+                  <a href="https://www.tiktok.com/@myeastview?_t=ZM-8zMJQVY74nG&_r=1" className="flex items-center gap-3 text-gray-300 hover:text-red-400 transition-colors duration-200">
                     <Youtube className="w-5 h-5" />
                     YouTube
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="flex items-center gap-3 text-gray-300 hover:text-blue-500 transition-colors duration-200">
+                  <a href="https://www.facebook.com/profile.php?id=61577378475137" className="flex items-center gap-3 text-gray-300 hover:text-blue-500 transition-colors duration-200">
                     <Facebook className="w-5 h-5" />
                     Facebook
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="flex items-center gap-3 text-gray-300 hover:text-pink-500 transition-colors duration-200">
+                  <a href="https://www.instagram.com/no_visualizer?igsh=MTZyZDl5ZTJ4ZDZmdA==" className="flex items-center gap-3 text-gray-300 hover:text-pink-500 transition-colors duration-200">
                     <Instagram className="w-5 h-5" />
                     Instagram
                   </a>
