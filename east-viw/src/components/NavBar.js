@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
+import pic8 from '../pages/img/pic8.jpg'; // Ensure the path to your logo image is correct
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -84,7 +84,7 @@ function Navbar() {
   const LogoComponent = ({ className = "" }) => (
     <div className={`logo-container ${className}`}>
       <img 
-        src="img/pic8.jpg" 
+        src={pic8}
         alt="ETI Institute Logo" 
         className="logo-image"
         onError={(e) => {
