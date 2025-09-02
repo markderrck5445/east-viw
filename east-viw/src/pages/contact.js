@@ -33,11 +33,11 @@ const ContactForm = () => {
   const [errors, setErrors] = useState({});
 
   // Company details
-  const ADMIN_EMAIL = 'nguyagwamarkderrick@gmail.com';
+  const ADMIN_EMAIL = 'eastviewcollege25@gmail.com';
   const COMPANY_NAME = 'East View Training Institute'; 
-  const COMPANY_EMAIL = 'nguyagwamarkderrick@gmail.com';
-  const COMPANY_PHONE = '+1 (555) 123-4567';
-  const COMPANY_ADDRESS = '123 Training Street, Education City, EC 12345';
+  const COMPANY_EMAIL = 'eastviewcollege25@gmail.com';
+  const COMPANY_PHONE = '0705 446 230 / 0105 712 842';
+  const COMPANY_ADDRESS = 'Along Mfangano street, Opposit Equity Bank';
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

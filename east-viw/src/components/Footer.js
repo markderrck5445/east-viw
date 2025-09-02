@@ -1,5 +1,6 @@
 import React from 'react';
 import { Store, Share2, Send, Youtube, Facebook, Instagram } from 'lucide-react';
+import pic8 from '../pages/img/pic8.jpg'; // Ensure the logo image is in the specified path
 
 const Footer = () => {
   return (
@@ -106,7 +107,7 @@ const Footer = () => {
           <div className="footer-column flex justify-center lg:justify-end">
             <div className="foot-logo">
               <img 
-                src="./img/pic4.jpg.png" 
+                src={pic8}
                 alt="Company Logo" 
                 className="w-24 h-24 md:w-32 md:h-32 object-contain rounded-lg shadow-lg"
               />
