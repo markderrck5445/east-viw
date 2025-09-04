@@ -168,6 +168,7 @@ const EastViewHomepage = () => {
                   Transform Your 
                   <span className="block bg-gradient-to-r from-purple-400 to-yellow-400 bg-clip-text text-transparent">
                     Future Today
+                    At East View Training Institute 
                   </span>
                 </h1>
                 <p className="text-xl lg:text-2xl text-gray-100 leading-relaxed max-w-2xl">
