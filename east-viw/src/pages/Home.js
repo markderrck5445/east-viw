@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import pic10 from '../pages/img/pic10.jpg'; // Ensure the image is in the correct path
+import pic11 from '../pages/img/pic11.jpg'; // Ensure the image is in the correct path
 import { 
   GraduationCap, 
   Users, 
@@ -141,7 +141,7 @@ const EastViewHomepage = () => {
         className="relative py-20 lg:py-32 overflow-hidden"
         style={{ 
           fontFamily: "'Spartan', sans-serif",
-         backgroundImage: `url(${pic10})`,
+         backgroundImage: `url(${pic11})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

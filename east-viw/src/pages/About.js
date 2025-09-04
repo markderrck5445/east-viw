@@ -1,6 +1,7 @@
 import React from 'react'
 import pic7 from './img/pic7.jpg';
 import pic6 from './img/pic6.jpg';
+import pic10 from '../pages/img/pic10.jpg'; 
 import {
    GraduationCap, 
   BookOpen, 
@@ -28,9 +29,12 @@ import {
 
 function About() {
   return (
-    <div className="min-h-screen bg-purple-50">
+    <div
+      
+     >
       {/* Header Section */}
       <div className="bg-gradient-to-r from-purple-600 to-purple-800 text-white py-16 px-4">
+        
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">About East View</h1>
         </div>
