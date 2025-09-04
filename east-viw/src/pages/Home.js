@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import pic10 from './img/pic10.jpg';
 import { 
   GraduationCap, 
   Users, 
@@ -131,11 +132,30 @@ const EastViewHomepage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-50 via-white to-purple-100 py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,46,139,0.05),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,215,0,0.05),transparent_50%)]"></div>
+
+       <link 
+        href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;600;700;800;900&display=swap" 
+        rel="stylesheet" 
+      />
+      <section 
+        className="relative py-20 lg:py-32 overflow-hidden"
+        style={{ 
+          fontFamily: "'Spartan', sans-serif",
+           backgroundImage: "url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-transparent to-purple-800/20"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,46,139,0.15),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,215,0,0.1),transparent_50%)]"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div 
               className="space-y-8"
@@ -144,20 +164,20 @@ const EastViewHomepage = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <div className="space-y-6">
-                <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+                <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight text-white">
                   Transform Your 
-                  <span className="block bg-gradient-to-r from-purple-600 to-yellow-500 bg-clip-text text-transparent">
+                  <span className="block bg-gradient-to-r from-purple-400 to-yellow-400 bg-clip-text text-transparent">
                     Future Today
                   </span>
                 </h1>
-                <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-2xl">
+                <p className="text-xl lg:text-2xl text-gray-100 leading-relaxed max-w-2xl">
                   Join East View Training Institute and unlock your potential with industry-leading programs designed to advance your career.
                 </p>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.button
-                  className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg"
+                  className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-xl backdrop-blur-sm"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => window.location.href = '/enroll'}
@@ -166,7 +186,7 @@ const EastViewHomepage = () => {
                 </motion.button>
 
                 <motion.button
-                  className="border-2 border-gray-300 hover:border-purple-600 text-gray-700 hover:text-purple-600 px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+                  className="border-2 border-white/50 hover:border-purple-400 text-white hover:text-purple-300 px-8 py-4 rounded-lg font-semibold text-lg transition-colors backdrop-blur-sm bg-white/10 hover:bg-white/20"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => window.location.href = '/academics'}
@@ -184,7 +204,7 @@ const EastViewHomepage = () => {
             >
               <div className="grid grid-cols-2 gap-6">
                 <motion.div 
-                  className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
+                  className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20"
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 >
@@ -194,7 +214,7 @@ const EastViewHomepage = () => {
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mt-8"
+                  className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 mt-8"
                   animate={{ y: [0, 10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 >
@@ -204,7 +224,7 @@ const EastViewHomepage = () => {
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 -mt-4"
+                  className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 -mt-4"
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
                 >
@@ -214,7 +234,7 @@ const EastViewHomepage = () => {
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
+                  className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20"
                   animate={{ y: [0, 12, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 3 }}
                 >
@@ -227,7 +247,6 @@ const EastViewHomepage = () => {
           </div>
         </div>
       </section>
-
       {/* Why Choose Us */}
       <section className="py-20 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -429,7 +429,7 @@ body {
   background: linear-gradient(
     135deg,
     rgba(0, 31, 63, 0.8) 0%,
-    rgba(0, 123, 191, 0.7) 50%,
+    rgba(23, 154, 224, 0.7) 50%,
     rgba(41, 128, 185, 0.6) 100%
   );
   background-attachment: fixed;
@@ -447,7 +447,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('./pages/img/pic1.jpg'); 
+  background-image: url('./pages/img/pic10.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
