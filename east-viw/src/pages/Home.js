@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import pic10 from './img/pic10.jpg';
+import pic10 from '../pages/img/pic10.jpg'; // Ensure the image is in the correct path
 import { 
   GraduationCap, 
   Users, 
@@ -141,7 +141,7 @@ const EastViewHomepage = () => {
         className="relative py-20 lg:py-32 overflow-hidden"
         style={{ 
           fontFamily: "'Spartan', sans-serif",
-           backgroundImage: "url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
+         backgroundImage: `url(${pic10})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -167,8 +167,10 @@ const EastViewHomepage = () => {
                 <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight text-white">
                   Transform Your 
                   <span className="block bg-gradient-to-r from-purple-400 to-yellow-400 bg-clip-text text-transparent">
-                    Future Today
+                    Future Today<br />
                     At East View Training Institute 
+                    
+                    
                   </span>
                 </h1>
                 <p className="text-xl lg:text-2xl text-gray-100 leading-relaxed max-w-2xl">
