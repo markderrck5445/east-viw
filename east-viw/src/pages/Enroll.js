@@ -27,6 +27,7 @@ export default function EnhancedEnrollmentForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSuccess, setIsSuccess] = useState(false);
   const [apiMessage, setApiMessage] = useState('');
+  
 
   // Backend API configuration
   const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';

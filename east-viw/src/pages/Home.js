@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import pic11 from '../pages/img/pic11.jpg'; // Ensure the image is in the correct path
+import pic11 from '../pages/img/pic11.jpg'; 
 import { 
   GraduationCap, 
   Users, 
@@ -275,6 +275,7 @@ const EastViewHomepage = () => {
             whileInView="animate"
             viewport={{ once: true }}
           >
+            
             {highlights.map((highlight, index) => (
               <motion.div
                 key={index}
